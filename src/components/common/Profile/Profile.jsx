@@ -68,7 +68,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const { data } = await instance.get( + `/public/user/${id}`)
+        const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
         console.log(data);
     }
