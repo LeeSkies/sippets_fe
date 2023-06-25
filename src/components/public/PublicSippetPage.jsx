@@ -35,7 +35,7 @@ export const PublicSippetPage = () => {
     useEffect(() => {
       setSippet(null)
       const getSippet = async () => {
-        const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/single/${id}`)
+        const { data } = await instance.get( + `/public/sippet/single/${id}`)
         setSippet(data)
       }
       getSippet()

@@ -33,7 +33,7 @@ export const Settings = () => {
         obj.image = await useSignFile(fd)
       }
 
-      await instance.put(import.meta.env.VITE_URL + '/protected/user/self', obj, { withCredentials: true });
+      await instance.put('/protected/user/self', obj, { withCredentials: true });
       setUser({...edit, image: obj.image.secure_url})
       toast.success('User updated successfully')
       setLoading(false)

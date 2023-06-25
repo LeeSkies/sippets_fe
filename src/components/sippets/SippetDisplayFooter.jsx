@@ -19,7 +19,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (sippet.author._id == user._id) return
         try {
           const { data: {op} } = await instance.put(
-            import.meta.env.VITE_URL + `/protected/sippet/like/${sippet._id}`,
+             + `/protected/sippet/like/${sippet._id}`,
             {},
             { withCredentials: true }
             );
@@ -43,7 +43,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (sippet.author._id == user._id) return
         try {
             const { message } = await instance.post(
-              import.meta.env.VITE_URL + `/protected/sippet/toast/${sippet._id}`,
+               + `/protected/sippet/toast/${sippet._id}`,
               {},
               { withCredentials: true }
               );

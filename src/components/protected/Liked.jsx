@@ -17,7 +17,7 @@ export const Liked = () => {
   useEffect(() => {
     const fetchLikedSippets = async (offset = 0) => {
       try {
-        const { data } = await instance.get(import.meta.env.VITE_URL + `/protected/sippet/liked?offset=${offset}`, {
+        const { data } = await instance.get( + `/protected/sippet/liked?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets(data);

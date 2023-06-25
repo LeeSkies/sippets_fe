@@ -32,7 +32,7 @@ export const WebsocketProvider = ({ children }) => {
     useEffect(() => {
         let connection;
         if (user?._id) {
-            connection = io(import.meta.env.VITE_URL, { query: { userId: user._id, handshakeString: auth } });
+            connection = io(, { query: { userId: user._id, handshakeString: auth } });
             connection.connect();
             setSocket(connection);
             fetchConversations()

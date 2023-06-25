@@ -1,8 +1,9 @@
 import axios from "axios"
+import instance from "../services/axios";
 
 export const useSignFile = async (fd) => {
     try {
-        const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/sippet/sign', { withCredentials: true })
+        const { data } = await instance.get('/protected/sippet/sign', { withCredentials: true })
         const { timestamp, signature, api_key } = data
         fd.append("api_key", api_key);
         fd.append("timestamp", timestamp);

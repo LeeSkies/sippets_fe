@@ -47,7 +47,7 @@ export const UserSippetPage = () => {
       setSippet(null)
       setCommentingOn(id)
       const getSippet = async () => {
-        const { data } = await instance.get(import.meta.env.VITE_URL + `/protected/sippet/single/${id}`,{ withCredentials: true })
+        const { data } = await instance.get( + `/protected/sippet/single/${id}`,{ withCredentials: true })
         setSippet(data)
       }
       getSippet()

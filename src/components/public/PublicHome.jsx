@@ -17,7 +17,7 @@ export const PublicHome = () => {
   useEffect(() => {
     const fetchSippets = async (offset = 0) => {
       try {
-        const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/latest?offset=${offset}`, {
+        const { data } = await instance.get(`/public/sippet/latest?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets([...sippets, ...data]);
