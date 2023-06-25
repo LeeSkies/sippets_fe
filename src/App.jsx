@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AppRoutes } from './router/AppRoutes';
 import { useSession } from './hooks/useSession';
 import { IndexProvider } from './context/IndexProvider';
+import { Banner } from './components/common/Banner';
 
 function App() {
   
@@ -11,10 +12,12 @@ function App() {
   useSession(setStarted)
 
   return (
-    started && 
+    started ? 
     <IndexProvider>
       <AppRoutes />
     </IndexProvider>
+    :
+    <Banner />
   );
 }
 

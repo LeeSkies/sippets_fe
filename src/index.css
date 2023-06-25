@@ -63,7 +63,7 @@ html {
     }
 }
 
-#blob-screen {
+/* #blob-screen {
     z-index: -1 !important;
     position: absolute !important;
 }
@@ -87,5 +87,4 @@ html {
     /* filter: blur(300px); */
     z-index: -2 !important;
     animation: rotate 20s infinite;
-}
-  
+/* } */
