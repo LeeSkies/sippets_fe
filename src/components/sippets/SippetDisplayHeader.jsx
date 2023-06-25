@@ -49,8 +49,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
     if (!loggedIn) return;
     try {
       if (sippet.author._id == user._id) throw new Error("Cannot follow self");
-      const { data } = await instance.put(
-         + `/protected/user/follow/${sippet.author._id}`,
+      const { data } = await instance.put(`/protected/user/follow/${sippet.author._id}`,
         {},
         { withCredentials: true }
       );
