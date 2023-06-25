@@ -43,6 +43,11 @@ export const UserSippetPage = () => {
 
     const navigate = useNavigate()
 
+    const handleClick = (e, cb) => {
+      e.stopPropagation()
+      cb()
+    }
+
     useEffect(() => {
       setSippet(null)
       setCommentingOn(id)
@@ -60,7 +65,7 @@ export const UserSippetPage = () => {
         {loggedIn && <article className='w-full flex justify-between p-2 items-center'>
         <button
             onClick={(e) =>
-              handleClick(e, () => navigate(`/user/${sippet.author._id}`))
+              handleClick(e, () => navigate(`/user/${user._id}`))
             }
             style={{
               backgroundColor: "#6699FF",
@@ -69,11 +74,10 @@ export const UserSippetPage = () => {
               "h-10 w-10 md:h-14 ml-auto md:w-14 rounded overflow-clip flex items-center justify-center"
             }
           >
-            {console.log(user)}
             {typeof user?.image == String ?
-            <ImageComp url={sippet.author.image.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
+            <ImageComp url={user.image.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
             <p className="font-bold ">
-              {sippet.author.username.charAt(0).toUpperCase()}
+              {user.username.charAt(0).toUpperCase()}
             </p>}
           </button>
         </article>}
