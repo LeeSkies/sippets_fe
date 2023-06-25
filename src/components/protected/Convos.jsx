@@ -15,7 +15,7 @@ export const Convos = () => {
     // const { socket, auth, conversations } = useContext(WebsocketContext)
 
     // useEffect(() => {
-    //     // axios.post('https://real-clam-loafers.cyclic.app' + '/protected/conversation/all')
+    //     // axios.post(import.meta.env.VITE_URL + '/protected/conversation/all')
     // }, [])
 
   return (
@@ -30,7 +30,7 @@ export const Convos = () => {
                 </button>
             ))}
                 </section> */}
-                <h1 className='w-full text-center'>
+                <h1 className='w-full text-center p-2 text-lg'>
                     There was an amazing chat app here! sadly, Cyclic doesn't support RTC, go figure. so you're just gonna have to take my word for it! cheers!
                 </h1>
         </section>

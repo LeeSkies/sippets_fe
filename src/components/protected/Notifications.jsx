@@ -26,7 +26,7 @@ export const Notifications = () => {
     
   useEffect(() => {
     const updateNotifications = async () => {
-      await axios.put('https://real-clam-loafers.cyclic.app' + '/protected/buzz/', {}, { withCredentials: true })
+      await axios.put(import.meta.env.VITE_URL + '/protected/buzz/', {}, { withCredentials: true })
     }
     const timer = setTimeout(() => {
       if (notifications.length > 0) updateNotifications()

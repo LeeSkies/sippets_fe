@@ -37,7 +37,7 @@ export const Profile = () => {
   }
   
   const fetchComments = async () => {
-    const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + `/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
+    const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
         withCredentials: true,
       })
     setComments([...comments, ...data])
@@ -45,7 +45,7 @@ export const Profile = () => {
     return
   }
   const fetchSippets = async () => {
-    const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + `/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
+    const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
     setSippets([...sippets, ...data])
@@ -71,7 +71,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + `/public/user/${id}`)
+        const { data } = await axios.get(import.meta.env.VITE_URL + `/public/user/${id}`)
         setUser(data)
     }
     fetchUser()

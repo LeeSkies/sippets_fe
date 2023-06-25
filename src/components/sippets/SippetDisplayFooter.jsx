@@ -19,7 +19,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (sippet.author._id == user._id) return
         try {
           const { data: {op} } = await axios.put(
-            'https://real-clam-loafers.cyclic.app' + `/protected/sippet/like/${sippet._id}`,
+            import.meta.env.VITE_URL + `/protected/sippet/like/${sippet._id}`,
             {},
             { withCredentials: true }
             );
@@ -43,7 +43,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (sippet.author._id == user._id) return
         try {
             const { message } = await axios.post(
-              'https://real-clam-loafers.cyclic.app' + `/protected/sippet/toast/${sippet._id}`,
+              import.meta.env.VITE_URL + `/protected/sippet/toast/${sippet._id}`,
               {},
               { withCredentials: true }
               );

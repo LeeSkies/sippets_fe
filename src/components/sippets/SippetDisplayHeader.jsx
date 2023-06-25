@@ -50,7 +50,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
     try {
       if (sippet.author._id == user._id) throw new Error("Cannot follow self");
       const { data } = await axios.put(
-        'https://real-clam-loafers.cyclic.app' + `/protected/user/follow/${sippet.author._id}`,
+        import.meta.env.VITE_URL + `/protected/user/follow/${sippet.author._id}`,
         {},
         { withCredentials: true }
       );

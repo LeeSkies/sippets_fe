@@ -19,7 +19,7 @@ export const Liked = () => {
   useEffect(() => {
     const fetchLikedSippets = async (offset = 0) => {
       try {
-        const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + `/protected/sippet/liked?offset=${offset}`, {
+        const { data } = await axios.get(import.meta.env.VITE_URL + `/protected/sippet/liked?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets(data);
