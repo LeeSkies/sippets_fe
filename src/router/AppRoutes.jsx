@@ -23,8 +23,8 @@ export const AppRoutes = () => {
           <Route path='/' element={loggedIn ? <MainLayout /> : <AuthLayout />} >
               <Route index element={loggedIn ? <UserHome /> : <PublicHome />} />
               <Route path='/notifications' element={loggedIn ? <Notifications /> : <PublicHome />} />
-              <Route path='/conversations' element={loggedIn ? <Convos /> : <PublicHome />} />
-              <Route path='/messages/:id' element={<Convo />} />
+              {/* <Route path='/conversations' element={loggedIn ? <Convos /> : <PublicHome />} /> */}
+              {/* <Route path='/messages/:id' element={<Convo />} /> */}
               <Route path='/liked' element={loggedIn ? <Liked /> : <PublicHome />} />
               <Route path='/profile' element={loggedIn ? <Profile /> : <PublicHome />} />
               <Route path='/sippet/:id' element={loggedIn ? <UserSippetPage /> : <PublicSippetPage />} />

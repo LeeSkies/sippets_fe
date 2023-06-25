@@ -24,7 +24,7 @@ export const Convo = () => {
     const [conversation, setConversation] = useState(id != 0 ? id : null)
 
     const initiateConversation = async () => {
-        const { data } = await instance.post(`${}/protected/conversation/${receiver._id}`, {},
+        const { data } = await instance.post(`/protected/conversation/${receiver._id}`, {},
         { withCredentials: true })
         setConversations(prev => [...prev, data])
         setConversation(data._id)
