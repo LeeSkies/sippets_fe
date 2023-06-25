@@ -8,7 +8,7 @@ export const Discover = () => {
 
   useEffect(() => {
     const fetchWhoToFollow = async () => {
-      const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/user/discover', { withCredentials: true });
+      const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + '/protected/user/discover', { withCredentials: true });
       setUsers(data)
       console.log(data);
     }

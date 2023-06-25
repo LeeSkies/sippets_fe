@@ -30,7 +30,7 @@ export const FloatingMenu = () => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
-      const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/buzz/unread', { withCredentials: true })
+      const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + '/protected/buzz/unread', { withCredentials: true })
       setNotifications(data.map(n => {return {...n, new: true}}))
     }
     fetchNotifications()

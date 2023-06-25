@@ -15,7 +15,7 @@ export const Convos = () => {
     // const { socket, auth, conversations } = useContext(WebsocketContext)
 
     // useEffect(() => {
-    //     // axios.post(import.meta.env.VITE_URL + '/protected/conversation/all')
+    //     // axios.post('https://real-clam-loafers.cyclic.app' + '/protected/conversation/all')
     // }, [])
 
   return (

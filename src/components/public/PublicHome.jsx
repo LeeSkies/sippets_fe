@@ -17,7 +17,7 @@ export const PublicHome = () => {
   useEffect(() => {
     const fetchSippets = async (offset = 0) => {
       try {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/latest?offset=${offset}`, {
+        const { data } = await axios.get('https://real-clam-loafers.cyclic.app' + `/public/sippet/latest?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets([...sippets, ...data]);
