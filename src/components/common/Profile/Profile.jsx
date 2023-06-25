@@ -4,7 +4,7 @@ import { Title } from '../Title';
 import { SippetsFeed } from '../../sippets/SippetsFeed';
 import { UserContext } from '../../../context/userContext';
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
-import { WebsocketContext } from '../../../context/websocketContext';
+// import { WebsocketContext } from '../../../context/websocketContext';
 import { ProfileNav } from './ProfileNav';
 import { ProfileFollowBar } from './ProfileFollowBar';
 import { ImageModal } from '../ImageModal';
@@ -15,7 +15,7 @@ export const Profile = () => {
   const { id } = useParams()
 
   const { user: { _id } } = useContext(UserContext)
-  const { conversations, setCurrentReceiver } = useContext(WebsocketContext)
+  // const { conversations, setCurrentReceiver } = useContext(WebsocketContext)
 
   const navigate = useNavigate()
 
@@ -57,14 +57,14 @@ export const Profile = () => {
     setDisplay(type)
   }
 
-  const handleChatNavigation = () => {
-    const is = conversations.find(c => c.participants.find(p => p._id == user._id))
-    if (is) navigate('/messages/' + is._id)
-    else {
-      setCurrentReceiver(user)
-      navigate('/messages/0')  
-    }
-  }
+  // const handleChatNavigation = () => {
+  //   const is = conversations.find(c => c.participants.find(p => p._id == user._id))
+  //   if (is) navigate('/messages/' + is._id)
+  //   else {
+  //     setCurrentReceiver(user)
+  //     navigate('/messages/0')  
+  //   }
+  // }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -104,9 +104,9 @@ export const Profile = () => {
           <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
             <div className='flex items-center space-x-2'>
               <span>{user.username}</span>
-              {_id != user._id && <button onClick={handleChatNavigation} className='hover:text-slate-500'>
+              {/* {_id != user._id && <button onClick={handleChatNavigation} className='hover:text-slate-500'>
                 <EnvelopeIcon className='w-6 h-6' />
-              </button>}
+              </button>} */}
             </div>
             <span>Bio</span>
           </div>
