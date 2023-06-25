@@ -23,7 +23,7 @@ export const FloatingMenu = () => {
         {icon: notifications.find(n => n.read == false) ?
             <BellAlertIcon className={'w-6 h-6 animate-wiggle animate-infinite text-rose-100'} />:
             <BellIcon className='w-6 h-6' />, name: 'Notifications', to: '/notifications'},
-        {icon: <EnvelopeOpenIcon className='w-6 h-6' />, name: 'Messages', to: '/conversations'},
+        // {icon: <EnvelopeOpenIcon className='w-6 h-6' />, name: 'Messages', to: '/conversations'},
         {icon: <HandThumbUpIcon className='w-6 h-6' />, name: 'Liked', to: '/liked'},
         {icon: <UserIcon className='w-6 h-6' />, name: 'Profile', to: `/user/${user._id}`},
     ]
