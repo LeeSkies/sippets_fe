@@ -23,10 +23,8 @@ export const UserProvider = ({ children }) => {
       { withCredentials: true }
     );
     if (data) {
-      alert(data.message);
       setLoggedIn(true);
-      const { user } = data
-      setUser(user);
+      setUser(data);
       history.pushState({}, "", "/")
     }
   };
