@@ -1,6 +1,6 @@
-import instance from 'instance'
 import React, { useEffect, useState } from 'react'
 import { DiscoverItem } from './DiscoverItem'
+import instance from '../../../services/axios'
 
 export const Discover = () => {
 
