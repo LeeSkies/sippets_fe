@@ -41,8 +41,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
         try {
-            const { message } = await instance.post(
-               + `/protected/sippet/toast/${sippet._id}`,
+            const { message } = await instance.post(`/protected/sippet/toast/${sippet._id}`,
               {},
               { withCredentials: true }
               );
