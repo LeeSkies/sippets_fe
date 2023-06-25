@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    overflow-y: scroll;
+}
+
+[class^="cm-"] {
+    background-color: transparent !important;
+    border: none;
+}
+
+/* [class^="cm-theme-"] {
+    width: 100%;
+}
+
+.cm-editor {
+    width: 100%;
+}
+
+.cm-activeLine {
+    background-color: inherit;
+} */
+
+.cm-gutterElement, .cm-gutters {
+    display: none !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 2px;
+    border-radius: 100%;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #516572;
+  border-radius: 5px;
+}
+
+/* .profile {
+    background-color: transparent;
+    opacity: 1;
+    background-image:  linear-gradient(#161616 4px, transparent 4px), linear-gradient(to right, #161616 4px, transparent 4px);
+    background-size: 80px 80px;
+} */
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1 1.2;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#blob-screen {
+    z-index: -1 !important;
+    position: absolute !important;
+}
+
+#blob {
+    position: absolute !important;
+    height: 500px;
+    aspect-ratio: 1;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    translate: -150% -50%;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        aquamarine,
+        mediumpurple
+    );
+    /* filter: blur(300px); */
+    z-index: -2 !important;
+    animation: rotate 20s infinite;
+}
+  
