@@ -34,7 +34,7 @@ export const Profile = () => {
   }
   
   const fetchComments = async () => {
-    const { data } = await instance.get( + `/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
+    const { data } = await instance.get(`/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
         withCredentials: true,
       })
     setComments([...comments, ...data])
@@ -42,7 +42,7 @@ export const Profile = () => {
     return
   }
   const fetchSippets = async () => {
-    const { data } = await instance.get( + `/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
+    const { data } = await instance.get(`/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
     setSippets([...sippets, ...data])
