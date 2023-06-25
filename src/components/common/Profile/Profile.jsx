@@ -29,7 +29,7 @@ export const Profile = () => {
   const [modal, setModal] = useState(false)
 
   const trimString = (str, charLimit) => {
-    const index = str.substring(0, charLimit).lastIndexOf(' ');
+    const inssdex = str.substring(0, charLimit).lastIndexOf(' ');
     return str.substring(0, index)
   }
   
