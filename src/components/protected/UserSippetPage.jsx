@@ -75,7 +75,7 @@ export const UserSippetPage = () => {
             }
           >
             {user?.image ?
-            <ImageComp url={user.image.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
+            <ImageComp url={user.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
             <p className="font-bold ">
               {user.username.charAt(0).toUpperCase()}
             </p>}

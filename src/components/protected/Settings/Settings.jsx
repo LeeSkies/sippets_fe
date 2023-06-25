@@ -34,7 +34,7 @@ export const Settings = () => {
       }
 
       await instance.put('/protected/user/self', obj, { withCredentials: true });
-      setUser({...edit, image: obj.image.secure_url})
+      setUser({...edit, image: obj.image})
       toast.success('User updated successfully')
       setLoading(false)
     } catch (error) {
