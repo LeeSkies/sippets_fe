@@ -10,7 +10,6 @@ export const Discover = () => {
     const fetchWhoToFollow = async () => {
       const { data } = await instance.get('/protected/user/discover', { withCredentials: true });
       setUsers(data)
-      console.log(data);
     }
     fetchWhoToFollow()
   }, [])

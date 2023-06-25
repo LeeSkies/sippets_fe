@@ -55,8 +55,6 @@ export const Settings = () => {
   useEffect(() => {
     setEdit(user)
   }, [user])
-  console.log(edit);
-  console.log(user);
 
   return (
     <div className='w-full relative flex flex-col'>

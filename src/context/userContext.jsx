@@ -55,7 +55,6 @@ export const UserProvider = ({ children }) => {
         {},
         { withCredentials: true }
       );
-      console.log(data);
 
       if (data) {
         setLoggedIn(true);

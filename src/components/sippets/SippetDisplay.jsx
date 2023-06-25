@@ -61,6 +61,7 @@ export const SippetDisplay = ({ sippet }) => {
             />
           </div>
           ))}
+          {console.log(sippet)}
           </article>
           {sippet.file &&
           <div className='rounded-xl aspect-square m-3 md:m-6 overflow-clip mt-3'>
