@@ -70,6 +70,7 @@ export const Profile = () => {
     const fetchUser = async () => {
         const { data } = await instance.get( + `/public/user/${id}`)
         setUser(data)
+        console.log(data);
     }
     fetchUser()
   }, [])
