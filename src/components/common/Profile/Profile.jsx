@@ -8,7 +8,7 @@ import { WebsocketContext } from '../../../context/websocketContext';
 import { ProfileNav } from './ProfileNav';
 import { ProfileFollowBar } from './ProfileFollowBar';
 import { ImageModal } from '../ImageModal';
-import instance from '../../../services/instance';
+import instance from '../../../services/axios';
 
 export const Profile = () => {
 
