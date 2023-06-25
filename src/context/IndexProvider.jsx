@@ -3,7 +3,7 @@ import { CommentProvider } from './commentContext'
 import { ToastContainer } from 'react-toastify'
 import { NotificationsProvider } from './notificationsContext'
 import { SippetsProvider } from './sippetsContext'
-import { WebsocketProvider } from './websocketContext'
+// import { WebsocketProvider } from './websocketContext'
 
 export const IndexProvider = ({children}) => {
   return (
