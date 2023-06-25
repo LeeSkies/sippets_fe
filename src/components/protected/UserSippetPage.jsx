@@ -69,6 +69,7 @@ export const UserSippetPage = () => {
               "h-10 w-10 md:h-14 ml-auto md:w-14 rounded overflow-clip flex items-center justify-center"
             }
           >
+            {console.log(user)}
             {typeof user?.image == String ?
             <ImageComp url={sippet.author.image.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
             <p className="font-bold ">
