@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import io from 'socket.io-client'
 import { UserContext } from './userContext'
-import axios from "axios";
+import instance from "../services/axios";
 
 export const WebsocketContext = createContext({
     socket: null,
@@ -25,7 +25,7 @@ export const WebsocketProvider = ({ children }) => {
     const { user } = useContext(UserContext)
 
     const fetchConversations = async () => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/conversation/all', { withCredentials: true })
+        const { data } = await instance.get('/protected/conversation/all', { withCredentials: true })
         setConversations(data)
     }
 

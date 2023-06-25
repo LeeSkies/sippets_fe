@@ -1,7 +1,6 @@
-import axios from "axios";
 import { createContext, useState } from "react";
 import Joi from 'joi'
-import instance from "../services/axios";
+import instance from "../services/instance";
 
 export const UserContext = createContext({
   loggedIn: false,
@@ -18,8 +17,8 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const signup = async (username, email, password) => {
-    const { data } = await axios.post(
-      import.meta.env.VITE_URL + "/public/user/signup",
+    const { data } = await instance.post(
+      "/public/user/signup",
       { email, username, password },
       { withCredentials: true }
     );
@@ -32,8 +31,8 @@ export const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const { data } = await axios.post(
-        import.meta.env.VITE_URL + "/public/user/login",
+      const { data } = await instance.post(
+        "/public/user/login",
         { email, password },
         { withCredentials: true }
       );

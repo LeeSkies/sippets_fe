@@ -1,8 +1,8 @@
-import axios from "axios"
 import React, { createContext, useState } from "react"
 import Joi from "joi"
 import { toast } from "react-toastify"
 import { useSignFile } from "../hooks/useSignFile"
+import instance from "../services/axios"
 
 export const SippetsContext = createContext({
     latestSippets: [],
@@ -26,7 +26,7 @@ export const SippetsProvider = ({ children }) => {
     const [userSippets, setUserSippets] = useState([])
 
     const fetchLatestSippets = async (setLoading, setSippets) => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/protected/sippet/latest?offset=${latestSippets.length / 10}`, {
+        const { data } = await instance.get(`/protected/sippet/latest?offset=${latestSippets.length / 10}`, {
             withCredentials: true,
           })
         setLatestSippets([...latestSippets, ...data])
@@ -36,7 +36,7 @@ export const SippetsProvider = ({ children }) => {
     }
 
     const fetchFollowingSippets = async (setLoading, setSippets) => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/protected/sippet/following?offset=${followingSippets.length / 10}`, {
+        const { data } = await instance.get(`/protected/sippet/following?offset=${followingSippets.length / 10}`, {
             withCredentials: true,
           })
         setFollowingSippets([...followingSippets, ...data])
@@ -79,10 +79,10 @@ export const SippetsProvider = ({ children }) => {
 
         let image = await useSignFile(fd)
 
-        const endpoint = id ? import.meta.env.VITE_URL + `/protected/sippet/comment/${id}` : import.meta.env.VITE_URL + '/protected/sippet'
+        const endpoint = id ? `/protected/sippet/comment/${id}` : '/protected/sippet'
     
         try {
-          await axios.post(endpoint, {
+          await instance.post(endpoint, {
             blocks,
             language: lang,
             file: image,
