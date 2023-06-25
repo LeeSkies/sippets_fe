@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SippetEditor } from '../sippets/SippetEditor'
-import { SippetDisplay } from '../sippets/SippetDisplay'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import { UserContext } from '../../context/userContext'
 import { Title } from '../common/Title'
 import { SippetsFeed } from '../sippets/SippetsFeed'
+import instance from '../../services/axios'
 
 export const Liked = () => {
 
@@ -19,7 +17,7 @@ export const Liked = () => {
   useEffect(() => {
     const fetchLikedSippets = async (offset = 0) => {
       try {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/protected/sippet/liked?offset=${offset}`, {
+        const { data } = await instance.get(import.meta.env.VITE_URL + `/protected/sippet/liked?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets(data);

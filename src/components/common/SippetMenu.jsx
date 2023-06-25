@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../context/userContext'
-import { useNavigate } from 'react-router-dom'
 import { ConfirmModal } from './ConfirmModal'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { SippetsContext } from '../../context/sippetsContext'
+import instance from '../../services/axios'
 
 export const SippetMenu = ({ sippet }) => {
 
@@ -26,7 +25,7 @@ export const SippetMenu = ({ sippet }) => {
   const handleDelete = async () => {
     if (user._id != sippet.author._id) return
     try {
-      await axios.delete(import.meta.env.VITE_URL + '/protected/sippet/' + sippet._id, { withCredentials: true })
+      await instance.delete(import.meta.env.VITE_URL + '/protected/sippet/' + sippet._id, { withCredentials: true })
     } catch (error) {
       console.log(error.message)
       toast('an error occurred, please try again later')

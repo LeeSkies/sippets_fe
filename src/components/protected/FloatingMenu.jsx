@@ -2,8 +2,8 @@ import { Bars4Icon, BellAlertIcon, BellIcon, EnvelopeOpenIcon, HandThumbUpIcon, 
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NotificationsContext } from '../../context/notificationsContext'
-import axios from 'axios'
 import { UserContext } from '../../context/userContext'
+import instance from '../../services/axios'
 
 export const FloatingMenu = () => {
 
@@ -30,7 +30,7 @@ export const FloatingMenu = () => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
-      const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/buzz/unread', { withCredentials: true })
+      const { data } = await instance.get(import.meta.env.VITE_URL + '/protected/buzz/unread', { withCredentials: true })
       setNotifications(data.map(n => {return {...n, new: true}}))
     }
     fetchNotifications()

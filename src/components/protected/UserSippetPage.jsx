@@ -5,10 +5,10 @@ import { SippetEditor } from '../sippets/SippetEditor'
 import { UserContext } from '../../context/userContext'
 import { Title } from '../common/Title'
 import { CommentContext } from '../../context/commentContext'
-import axios from 'axios'
 import { SippetsFeed } from '../sippets/SippetsFeed'
 import { Sippet } from '../sippets/Sippet'
 import { ImageComp } from '../common/ImageComp'
+import instance from '../../services/axios'
 
 export const UserSippetPage = () => {
 
@@ -47,7 +47,7 @@ export const UserSippetPage = () => {
       setSippet(null)
       setCommentingOn(id)
       const getSippet = async () => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/protected/sippet/single/${id}`,{ withCredentials: true })
+        const { data } = await instance.get(import.meta.env.VITE_URL + `/protected/sippet/single/${id}`,{ withCredentials: true })
         setSippet(data)
       }
       getSippet()

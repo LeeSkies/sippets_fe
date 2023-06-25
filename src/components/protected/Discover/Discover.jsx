@@ -1,4 +1,4 @@
-import axios from 'axios'
+import instance from 'instance'
 import React, { useEffect, useState } from 'react'
 import { DiscoverItem } from './DiscoverItem'
 
@@ -8,7 +8,7 @@ export const Discover = () => {
 
   useEffect(() => {
     const fetchWhoToFollow = async () => {
-      const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/user/discover', { withCredentials: true });
+      const { data } = await instance.get(import.meta.env.VITE_URL + '/protected/user/discover', { withCredentials: true });
       setUsers(data)
       console.log(data);
     }

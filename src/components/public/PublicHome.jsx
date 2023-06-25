@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { SippetDisplay } from '../sippets/SippetDisplay'
 import { useNavigate } from 'react-router-dom'
 import { Title } from '../common/Title'
-import axios from 'axios'
 import { SippetSkeleton } from '../utilities/SippetSkeleton'
 import { SippetsFeed } from '../sippets/SippetsFeed'
+import instance from '../../services/axios'
 
 export const PublicHome = () => {
 
@@ -17,7 +17,7 @@ export const PublicHome = () => {
   useEffect(() => {
     const fetchSippets = async (offset = 0) => {
       try {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/latest?offset=${offset}`, {
+        const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/latest?offset=${offset}`, {
           withCredentials: true,
         });
         setSippets([...sippets, ...data]);

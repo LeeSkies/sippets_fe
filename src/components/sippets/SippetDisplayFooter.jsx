@@ -3,8 +3,8 @@ import { HeartIcon as SolidHeartIcon } from '@heroicons/react/24/solid'
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../context/userContext'
 import { CommentContext } from '../../context/commentContext'
-import axios from 'axios'
 import { SippetMenu } from '../common/SippetMenu'
+import instance from '../../services/axios'
 
 export const SippetDisplayFooter = ({ sippet }) => {
 
@@ -18,7 +18,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
         try {
-          const { data: {op} } = await axios.put(
+          const { data: {op} } = await instance.put(
             import.meta.env.VITE_URL + `/protected/sippet/like/${sippet._id}`,
             {},
             { withCredentials: true }
@@ -42,7 +42,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
         try {
-            const { message } = await axios.post(
+            const { message } = await instance.post(
               import.meta.env.VITE_URL + `/protected/sippet/toast/${sippet._id}`,
               {},
               { withCredentials: true }

@@ -8,10 +8,10 @@ import { SippetsContext } from "../../context/sippetsContext";
 import {
   ArrowPathRoundedSquareIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
 import { ConfirmModal } from "../common/ConfirmModal";
 import { toast } from 'react-toastify'
 import { ImageComp } from "../common/ImageComp";
+import instance from "../../services/axios";
 
 export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
     if (!loggedIn) return;
     try {
       if (sippet.author._id == user._id) throw new Error("Cannot follow self");
-      const { data } = await axios.put(
+      const { data } = await instance.put(
         import.meta.env.VITE_URL + `/protected/user/follow/${sippet.author._id}`,
         {},
         { withCredentials: true }

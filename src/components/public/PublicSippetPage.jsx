@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { SippetDisplay } from '../sippets/SippetDisplay'
 import { useParams } from 'react-router-dom'
 import { Title } from '../common/Title'
-import axios from 'axios'
 import { SippetsFeed } from '../sippets/SippetsFeed'
+import instance from '../../services/axios'
 
 export const PublicSippetPage = () => {
 
@@ -35,7 +35,7 @@ export const PublicSippetPage = () => {
     useEffect(() => {
       setSippet(null)
       const getSippet = async () => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/single/${id}`)
+        const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/single/${id}`)
         setSippet(data)
       }
       getSippet()

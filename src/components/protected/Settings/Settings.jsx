@@ -6,10 +6,10 @@ import { UserContext } from '../../../context/userContext'
 import { CodeThemeSettings } from './CodeThemeSettings'
 import { UsernameSettings } from './UsernameSettings'
 import { BioSettings } from './BioSettings'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { PicSettings } from './PicSettings'
 import { useSignFile } from '../../../hooks/useSignFile'
+import instance from '../../../services/axios'
 
 export const Settings = () => {
 
@@ -33,7 +33,7 @@ export const Settings = () => {
         obj.image = await useSignFile(fd)
       }
 
-      await axios.put(import.meta.env.VITE_URL + '/protected/user/self', obj, { withCredentials: true });
+      await instance.put(import.meta.env.VITE_URL + '/protected/user/self', obj, { withCredentials: true });
       setUser({...edit, image: obj.image.secure_url})
       toast.success('User updated successfully')
       setLoading(false)

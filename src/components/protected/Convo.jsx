@@ -4,7 +4,7 @@ import TextAreaAutosize from 'react-textarea-autosize'
 import { WebsocketContext } from '../../context/websocketContext'
 import { UserContext } from '../../context/userContext'
 import { useNavigate, useParams } from 'react-router-dom'
-import axios from 'axios'
+import instance from '../../services/axios'
 
 export const Convo = () => {
 
@@ -24,7 +24,7 @@ export const Convo = () => {
     const [conversation, setConversation] = useState(id != 0 ? id : null)
 
     const initiateConversation = async () => {
-        const { data } = await axios.post(`${import.meta.env.VITE_URL}/protected/conversation/${receiver._id}`, {},
+        const { data } = await instance.post(`${import.meta.env.VITE_URL}/protected/conversation/${receiver._id}`, {},
         { withCredentials: true })
         setConversations(prev => [...prev, data])
         setConversation(data._id)
@@ -78,7 +78,7 @@ export const Convo = () => {
 
     useEffect(() => {
         const fetchMessages = async () => {
-            const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/conversation/' + id + '?offset=' + page, { withCredentials: true })
+            const { data } = await instance.get(import.meta.env.VITE_URL + '/protected/conversation/' + id + '?offset=' + page, { withCredentials: true })
             setMessages([...messages, ...data])
         }
         if (id != 0) {

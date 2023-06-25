@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TST } from '../../assets/icons/Icons'
 import { useNavigate } from 'react-router-dom'
 import { NotificationsContext } from '../../context/notificationsContext'
-import axios from 'axios'
 import { UserContext } from '../../context/userContext'
+import instance from '../../services/axios'
 
 export const Menu = () => {
 
@@ -42,7 +42,7 @@ export const Menu = () => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
-      const { data } = await axios.get(import.meta.env.VITE_URL + '/protected/buzz/unread', { withCredentials: true })
+      const { data } = await instance.get(import.meta.env.VITE_URL + '/protected/buzz/unread', { withCredentials: true })
       setNotifications(data.map(n => {return {...n, new: true}}))
     }
     fetchNotifications()

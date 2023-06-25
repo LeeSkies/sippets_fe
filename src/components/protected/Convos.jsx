@@ -3,7 +3,6 @@ import { Title } from '../common/Title'
 import { WebsocketContext } from '../../context/websocketContext'
 import { useNavigate } from 'react-router-dom'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
-import axios from 'axios'
 import { Convo } from './Convo'
 import { UserContext } from '../../context/userContext'
 

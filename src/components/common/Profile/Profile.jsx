@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import TextareaAutosize from 'react-textarea-autosize';
-import { Cog6ToothIcon } from '@heroicons/react/24/outline';
-import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Title } from '../Title';
 import { SippetsFeed } from '../../sippets/SippetsFeed';
@@ -10,8 +7,8 @@ import { EnvelopeIcon } from '@heroicons/react/24/solid';
 import { WebsocketContext } from '../../../context/websocketContext';
 import { ProfileNav } from './ProfileNav';
 import { ProfileFollowBar } from './ProfileFollowBar';
-import { ImageComp } from '../ImageComp';
 import { ImageModal } from '../ImageModal';
+import instance from '../../../services/instance';
 
 export const Profile = () => {
 
@@ -37,7 +34,7 @@ export const Profile = () => {
   }
   
   const fetchComments = async () => {
-    const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
+    const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
         withCredentials: true,
       })
     setComments([...comments, ...data])
@@ -45,7 +42,7 @@ export const Profile = () => {
     return
   }
   const fetchSippets = async () => {
-    const { data } = await axios.get(import.meta.env.VITE_URL + `/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
+    const { data } = await instance.get(import.meta.env.VITE_URL + `/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
     setSippets([...sippets, ...data])
@@ -71,7 +68,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const { data } = await axios.get(import.meta.env.VITE_URL + `/public/user/${id}`)
+        const { data } = await instance.get(import.meta.env.VITE_URL + `/public/user/${id}`)
         setUser(data)
     }
     fetchUser()

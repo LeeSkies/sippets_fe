@@ -3,8 +3,8 @@ import { Title } from '../common/Title'
 import { NotificationsContext } from '../../context/notificationsContext'
 import { useNavigate } from 'react-router-dom'
 import { ChevronDoubleRightIcon } from '@heroicons/react/24/outline'
-import axios from 'axios'
 import { SippetSkeleton } from '../utilities/SippetSkeleton'
+import instance from '../../services/axios'
 
 export const Notifications = () => {
   
@@ -26,7 +26,7 @@ export const Notifications = () => {
     
   useEffect(() => {
     const updateNotifications = async () => {
-      await axios.put(import.meta.env.VITE_URL + '/protected/buzz/', {}, { withCredentials: true })
+      await instance.put('/protected/buzz/', {}, { withCredentials: true })
     }
     const timer = setTimeout(() => {
       if (notifications.length > 0) updateNotifications()
