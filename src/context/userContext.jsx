@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import Joi from 'joi'
-import instance from "../services/instance";
+import instance from "../services/axios";
 
 export const UserContext = createContext({
   loggedIn: false,
