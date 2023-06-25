@@ -17,7 +17,7 @@ export const Title = ({ title }) => {
         </button>
         <h1 className=' text-2xl'>{title}</h1>
       </section>
-      <button onClick={() =>logout()} className='p-2 md:hidden bg-slate-700 text-slate-300 rounded'>logout</button>
+      {loggedIn && <button onClick={() =>logout()} className='p-2 md:hidden bg-slate-700 text-slate-300 rounded'>logout</button>}
     </header>
   )
 }
