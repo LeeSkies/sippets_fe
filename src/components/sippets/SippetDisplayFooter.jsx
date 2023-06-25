@@ -18,8 +18,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
         try {
-          const { data: {op} } = await instance.put(
-             + `/protected/sippet/like/${sippet._id}`,
+          const { data: {op} } = await instance.put(`/protected/sippet/like/${sippet._id}`,
             {},
             { withCredentials: true }
             );
