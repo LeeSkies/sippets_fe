@@ -67,7 +67,7 @@ export const SippetDisplay = ({ sippet }) => {
             <img loading='lazy' onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
             src={sippet.file} className='w-full' />
           </div>}
-          {modal && <ImageModal cb={setModal} url={sippet.file} />}
+          {modal && <ImageModal cb={setModal} url={sippet.is == 'toast' ? sippet.ref_sippet.file : sippet.file} />}
         <SippetDisplayFooter sippet={sippet} />
       </section>
     </article>
