@@ -5,7 +5,7 @@ export const useSession = async (cb) => {
   const { refresh } = useContext(UserContext);
 
   useEffect(() => {
-    Notification.requestPermission();
+    // Notification.requestPermission();
     refresh(cb);
   }, []);
 
