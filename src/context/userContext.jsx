@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 import Joi from 'joi'
+import instance from "../services/axios";
 
 export const UserContext = createContext({
   loggedIn: false,
@@ -51,8 +52,7 @@ export const UserProvider = ({ children }) => {
 
   const refresh = async (cb) => {
     try {
-      const { data } = await axios.post(
-        import.meta.env.VITE_URL + "/protected/user/refresh",
+      const { data } = await instance.post("/protected/user/refresh",
         {},
         { withCredentials: true }
       );
