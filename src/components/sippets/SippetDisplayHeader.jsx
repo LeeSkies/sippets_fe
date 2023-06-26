@@ -23,6 +23,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
 
   const [followed, setFollowed] = useState(() => sippet.followed);
   const [modal, setModal] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const getRandomColor = () => {
     const midRangeColors = [
@@ -47,6 +48,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
 
   const handleFollow = async () => {
     if (!loggedIn) return;
+    setLoading(true)
     try {
       if (sippet.author._id == user._id) throw new Error("Cannot follow self");
       const { data } = await instance.put(`/protected/user/follow/${sippet.author._id}`,
@@ -63,6 +65,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false)
   };
 
   const handleClick = (e, cb) => {
@@ -93,8 +96,8 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
         {loggedIn && sippet._id == id && user._id != sippet.author._id && (
           <button
             onClick={(e) => followed ? setModal(true) : handleFollow()}
-            className={`rounded-full text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
-              loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
+            className={`flex justify-center items-center rounded-full text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
+              loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
             }`}
           >
             {loggedIn && followed ? "following" : "follow"}
