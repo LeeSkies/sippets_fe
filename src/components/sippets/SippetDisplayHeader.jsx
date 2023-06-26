@@ -120,7 +120,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
               "h-10 w-10 md:h-14 md:w-14 rounded overflow-clip flex items-center justify-center"
             }
           >
-            {user?.image?.secure_url ?
+            {sippet.author?.image?.secure_url ?
             <ImageComp url={sippet.author.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
             <p className="font-bold ">
               {sippet.author.username.charAt(0).toUpperCase()}
