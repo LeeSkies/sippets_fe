@@ -12,7 +12,6 @@ export const useSignFile = async (fd) => {
         const queryString = Object.keys(queryObj).map(key => `${key}=${queryObj[key]}`).join('&')
         const url = "https://api.cloudinary.com/v1_1/" +  data.cloud_name + '/image/upload/?' + queryString;
         const { data:image } = await axios.post(url, fd, )
-        // console.log(image);
         return image
     } catch (error) {
         console.log(error);
