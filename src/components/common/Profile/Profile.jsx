@@ -24,7 +24,7 @@ export const Profile = () => {
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(false)
   const [display, setDisplay] = useState('sippets')
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [bio, setBio] = useState(false)
   const [modal, setModal] = useState(false)
 
@@ -37,20 +37,19 @@ export const Profile = () => {
     const { data } = await instance.get(`/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
         withCredentials: true,
       })
-    setComments(page == 0 ? [...data] : [...comments, ...data])
+    setComments([...comments, ...data])
     setLoading(false)
     return
   }
   const fetchSippets = async () => {
-    console.log('f');
     const { data } = await instance.get(`/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
-    setSippets(page == 0 ? [...data] : [...sippets, ...data])
+    setSippets([...sippets, ...data])
     setLoading(false)
     return
   }
-console.log(page);
+
   const changeDisplay = async (type) => {
 
     if (type == 'comments' && comments.length <= 0)
@@ -68,7 +67,6 @@ console.log(page);
   // }
 
   useEffect(() => {
-    setPage(0)
     const fetchUser = async () => {
         const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
@@ -78,6 +76,12 @@ console.log(page);
     else
       fetchUser()
   }, [id])
+
+  useEffect(() => {
+    setSippets([])
+    setComments([])
+    setPage(prev => prev + 1)
+  }, [user])
 
   useEffect(() => {
     if (display == 'sippets') {
