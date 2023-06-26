@@ -18,7 +18,7 @@ export const ProtectedProfile = () => {
   const [user, setUser] = useState(null)
   const [sippets, setSippets] = useState([])
   const [comments, setComments] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [display, setDisplay] = useState('sippets')
   const [page, setPage] = useState(1)
   const [bio, setBio] = useState(false)
@@ -82,6 +82,7 @@ export const ProtectedProfile = () => {
         setUser(data)
         console.log(data);
         setFollowed(data.followed)
+        setLoading(false)
     }
     if (id == current._id)
       setUser(current)
@@ -105,7 +106,7 @@ export const ProtectedProfile = () => {
   }, [page])
 
   return (
-    user ? <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
+    !loading ? <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
       <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
       </div>
       <header className='self-start'>
