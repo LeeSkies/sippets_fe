@@ -17,16 +17,16 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const signup = async (username, email, password) => {
-    // const { data } = await instance.post(
-    //   "/public/user/signup",
-    //   { email, username, password },
-    //   { withCredentials: true }
-    // );
-    // if (data) {
-    //   setLoggedIn(true);
-    //   setUser(data);
-    //   history.pushState({}, "", "/")
-    // }
+    const { data } = await instance.post(
+      "/public/user/signup",
+      { email, username, password },
+      { withCredentials: true }
+    );
+    if (data) {
+      setLoggedIn(true);
+      setUser(data);
+      history.pushState({}, "", "/")
+    }
     return
   };
 

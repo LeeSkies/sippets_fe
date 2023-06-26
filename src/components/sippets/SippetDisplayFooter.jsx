@@ -90,6 +90,9 @@ export const SippetDisplayFooter = ({ sippet }) => {
                 </button>
                 <p className='text-slate-500'>{sippet.likesCount}</p>
             </figure>
+            <figure className='flex items-center'>
+              {loading ? <div className='rounded-full h-5 w-5 border border-b-sky-400 animate-spin'></div> : 'save'}
+            </figure>
         </section>
         {!loggedIn && <p className='relative text-slate-400 text-sm md:grow px-4 pb-1 italic'>Sign in to interact</p>}
         <button onClick={(e) =>  {e.stopPropagation(), setMenu(prev => !prev)}} className='text-neutral-300'>
