@@ -92,6 +92,9 @@ export const UserSippetPage = () => {
           <SippetsFeed sippets={sippet.comments} />
         </section>
     </div> :
-    <h1 className='w-full text-center p-2'>A problem occurred, please try again later</h1>
+    <div className='w-full'>
+      <Title title={'Sippet'} />
+      <h1 className='w-full text-center p-2'>A problem occurred, please try again later</h1>
+    </div>
   )
 }
