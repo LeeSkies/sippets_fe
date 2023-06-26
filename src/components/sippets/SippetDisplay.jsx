@@ -68,7 +68,7 @@ export const SippetDisplay = ({ sippet }) => {
           {(sippet.is == 'toast' ? sippet.ref_sippet.file : sippet.file) &&
           <div className='rounded-xl max-h-[500px] m-3 md:m-6 overflow-clip mt-3'>
             <img loading='lazy' onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
-            src={'https://res.cloudinary.com/db7vikkkf/image/upload/v1687646202/oal9cbly9shwc0lalant.jpg'} className='w-full' />
+            src={imgURL} className='w-full' />
           </div>}
           {console.log(sippet.is == 'toast' && sippet.ref_sippet.file.secure_url)}
           {modal && <ImageModal cb={setModal} url={imgURL} />}
