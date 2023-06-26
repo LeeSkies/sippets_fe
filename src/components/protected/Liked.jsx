@@ -36,7 +36,7 @@ export const Liked = () => {
       <Title title={'Liked'} />
       {loading ? Array(5).fill(null).map((_, i) =>
       <div key={i} className='w-full'>
-        <SippetSkeleton />
+        <SippetSkeleton icon={true} />
       </div>)
       : <SippetsFeed sippets={sippets} />}
     </div>
