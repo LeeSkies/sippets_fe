@@ -96,7 +96,7 @@ export const Profile = () => {
           <img onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
           src={user.image.secure_url.replace('upload/', 'upload/c_scale,w_0.50/')} className='rounded-md w-full aspect-square min-h-full' />
           :
-          <figure className='bg-gradient-to-b from-sky-900 to-red-300 w-full aspect-square flex justify-center items-center text-4xl font-bold text-slate-800 aspect-square mx-auto rounded-md'>
+          <figure className='bg-gradient-to-b from-sky-900 to-red-300 w-full flex justify-center items-center text-4xl font-bold text-slate-800 aspect-square mx-auto rounded-md'>
             {user.username.charAt(0).toUpperCase()}
           </figure>}
           {modal &&
