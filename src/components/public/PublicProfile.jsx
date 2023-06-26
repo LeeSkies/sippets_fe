@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { Title } from '../Title';
-import { SippetsFeed } from '../../sippets/SippetsFeed';
-import { UserContext } from '../../../context/userContext';
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
-// import { WebsocketContext } from '../../../context/websocketContext';
-import { ProfileNav } from './ProfileNav';
-import { ProfileFollowBar } from './ProfileFollowBar';
-import { ImageModal } from '../ImageModal';
-import instance from '../../../services/axios';
+import instance from '../../services/axios';
+import { Title } from '../common/Title';
+import { ImageModal } from '../common/ImageModal';
+import { ProfileFollowBar } from '../common/Profile/ProfileFollowBar';
+import { ProfileNav } from '../common/Profile/ProfileNav';
+import { SippetsFeed } from '../sippets/SippetsFeed';
+
 
 export const PublicProfile = () => {
 

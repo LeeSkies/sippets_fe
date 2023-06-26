@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { Title } from '../common/Title';
-import { SippetsFeed } from '../sippets/SippetsFeed';
 import { UserContext } from '../../context/userContext';
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
-// import { WebsocketContext } from '../../../context/websocketContext';
-import { ProfileNav } from '../common/Profile/ProfileNav';
-import { ProfileFollowBar } from '../common/Profile/ProfileFollowBar';
-import { ImageModal } from '../common/ImageModal';
 import instance from '../../services/axios';
+import { Title } from '../common/Title';
+import { ImageModal } from '../common/ImageModal';
+import { ProfileFollowBar } from '../common/Profile/ProfileFollowBar';
+import { ProfileNav } from '../common/Profile/ProfileNav';
+import { SippetsFeed } from '../sippets/SippetsFeed';
 
 export const ProtectedProfile = () => {
 
@@ -104,9 +102,6 @@ export const ProtectedProfile = () => {
           <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
             <div className='flex items-center space-x-2'>
               <span>{user.username}</span>
-              {/* {_id != user._id && <button onClick={handleChatNavigation} className='hover:text-slate-500'>
-                <EnvelopeIcon className='w-6 h-6' />
-              </button>} */}
             </div>
             <span>Bio</span>
           </div>
