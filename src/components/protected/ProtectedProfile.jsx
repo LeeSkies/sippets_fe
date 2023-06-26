@@ -82,14 +82,12 @@ export const ProtectedProfile = () => {
         setUser(data)
         console.log(data);
         setFollowed(data.followed)
-        setLoading(false)
     }
     if (id == current._id)
       setUser(current)
-    else {
+    else
       fetchUser()
-      setLoading(false)
-    }
+    setLoading(false)
   }, [id])
 
   useEffect(() => {
@@ -108,7 +106,8 @@ export const ProtectedProfile = () => {
   }, [page])
 
   return (
-    !loading ? <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
+    loading ? <SippetSkeleton icon={true} count={7} />
+    : <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
       <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
       </div>
       <header className='self-start'>
@@ -159,6 +158,5 @@ export const ProtectedProfile = () => {
         load more
       </button>}
     </div>
-    : <SippetSkeleton icon={true} count={7} />
   )
 }
