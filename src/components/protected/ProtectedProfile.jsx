@@ -124,7 +124,7 @@ export const ProtectedProfile = () => {
           </figure>}
           {modal &&
             <ImageModal url={user.image.secure_url} cb={setModal} />}
-          <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
+          <div className='w-full text-2xl items-center flex justify-between py-2 font-thin border-b border-b-slate-600'>
             <div className='flex items-center space-x-2'>
               <span>{user.username}</span>
             </div>
