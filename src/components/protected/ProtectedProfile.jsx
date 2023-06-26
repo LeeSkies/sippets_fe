@@ -77,7 +77,7 @@ export const ProtectedProfile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-        const { data } = await instance.get(`/public/user/${id}`)
+        const { data } = await instance.get(`/protected/user/${id}`)
         setUser(data)
         setFollowed(data.followed)
     }
