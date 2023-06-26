@@ -37,7 +37,7 @@ export const Profile = () => {
     const { data } = await instance.get(`/public/sippet/comments/${id}?offset=${comments.length / 10}`, {
         withCredentials: true,
       })
-    setComments([...comments, ...data])
+    setComments(page == 0 ? [...data] : [...comments, ...data])
     setLoading(false)
     return
   }
@@ -45,7 +45,7 @@ export const Profile = () => {
     const { data } = await instance.get(`/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
-    setSippets([...sippets, ...data])
+    setSippets(page == 0 ? [...data] : [...sippets, ...data])
     setLoading(false)
     return
   }
@@ -68,8 +68,6 @@ export const Profile = () => {
 
   useEffect(() => {
     setPage(0)
-    setComments([])
-    setSippets([])
     const fetchUser = async () => {
         const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
