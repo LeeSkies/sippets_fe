@@ -97,10 +97,10 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
           <button
             onClick={(e) => followed ? setModal(true) : handleFollow()}
             className={`flex justify-center items-center rounded-full text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
-              loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
+              loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
             }`}
           >
-            {loggedIn && followed ? "following" : "follow"}
+            {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "following" : "follow"}
           </button>
         )}
 
