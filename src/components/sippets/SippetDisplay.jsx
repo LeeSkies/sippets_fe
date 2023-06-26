@@ -66,7 +66,7 @@ export const SippetDisplay = ({ sippet }) => {
           {/* {console.log(sippet)} */}
           </article>
           {(sippet.is == 'toast' ? sippet.ref_sippet.file : sippet.file) &&
-          <div className='rounded-xl max-h-[500px] m-3 md:m-6 overflow-clip mt-3'>
+          <div className='rounded-xl max-h-[500px] md:max-h-[550px] m-3 md:m-6 overflow-clip mt-3'>
             <img loading='lazy' onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
             src={imgURL} className='w-full' />
           </div>}

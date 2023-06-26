@@ -29,7 +29,7 @@ export const DiscoverItem = ({ user }) => {
   return (
     <button onClick={() => navigate('/user/' + user._id)} className='flex items-center w-full space-x-4 text-slate-800 bg-stone-300 rounded p-1'>
         <article>
-            {/* {user?.image? <img src={user.image.replace('upload/', 'upload/c_fill,h_200,w_200/')}
+            {user?.image?.secure_url? <img src={user.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')}
             alt={<p
             style={{backgroundColor: randomColor}} className="font-bold w-10 h-10 text-center flex items-center justify-center">
                   {user.username.charAt(0).toUpperCase()}
@@ -37,7 +37,7 @@ export const DiscoverItem = ({ user }) => {
                 :
                 <p style={{backgroundColor: randomColor}} className="font-bold w-10 h-10 text-center flex items-center justify-center">
                   {user.username.charAt(0).toUpperCase()}
-                </p>} */}
+                </p>}
         </article>
         <p className='text-xl'>{user.username}</p>
     </button>
