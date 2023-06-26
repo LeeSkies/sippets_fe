@@ -27,7 +27,7 @@ export const DiscoverItem = ({ user }) => {
     const randomColor = getRandomColor()
 
   return (
-    <button onClick={() => navigate('/user/' + user._id)} className='flex items-center w-full space-x-4 text-slate-300 border border-slate-500 rounded p-1'>
+    <button onClick={() => navigate('/user/' + user._id)} className='flex items-center w-full space-x-4 text-slate-300 border border-black rounded p-1'>
         <article>
             {user?.image?.secure_url? <img src={user.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')}
             alt={<p
