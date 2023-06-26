@@ -19,6 +19,7 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
 
   const [filesHovered, setFilesHovered] = useState(false)
   const [files, setFiles] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   const getCodeLength = () => {
     let len = 0
@@ -59,6 +60,7 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
   }
 
   const handleClick = async () => {
+    setLoading(true);
     if (op == 'sippet') {
       const sippet_id = await sendSippet(blocks, lang, [], setError, fileRef.current.files[0])
       setBlocks([{ type: "text", value: "" }])
@@ -72,6 +74,7 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
       if (sippet_id) navigate('/sippet/' + sippet_id)
     }
     fileRef.current.files = new DataTransfer().files
+    setLoading(false);
   }
 
     return (
@@ -118,8 +121,9 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
             <p className={`text-lg px-2 pl-3 font-semibold ${getCodeLength() > maxCodeLength - 50 ? 'text-red-400' : getCodeLength() > maxCodeLength - 100 ? 'text-yellow-400' : 'text-green-400'}`}>
               {maxCodeLength - getCodeLength()}
             </p>
-            <button onClick={handleClick} className='p-2hover:text-rose-500 active:scale-95 duration-300'>
-              <PaperAirplaneIcon className='h-6 w-6 hover:text-sky-400' />
+            <button onClick={handleClick} className='p-2 hover:text-rose-500 active:scale-95 duration-300'>
+              {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div>
+              : <PaperAirplaneIcon className='h-6 w-6 hover:text-sky-400' />}
             </button>
           </div>
         </section>
