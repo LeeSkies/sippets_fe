@@ -82,13 +82,14 @@ export const SippetsProvider = ({ children }) => {
         const endpoint = id ? `/protected/sippet/comment/${id}` : '/protected/sippet'
     
         try {
-          await instance.post(endpoint, {
+          const { data } =await instance.post(endpoint, {
             blocks,
             language: lang,
             file: image,
             hashtags: []
         },{ withCredentials: true });
         toast(`${id ? 'Comment' : 'Sippet'} posted successfully`)
+        return data.sippet_id
         } catch (error) {
           toast.error(error.response.data.message)
         }

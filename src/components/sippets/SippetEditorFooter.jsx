@@ -5,7 +5,7 @@ import React, { useContext, useRef, useState } from 'react'
 import data from '@emoji-mart/data'
 import { LangSelector } from '../utilities/Langs'
 import { SippetsContext } from '../../context/sippetsContext'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 
 export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlock, lang, setLang, emojiPicker, handleEmojiPick, handleEmojiPickerOpen, maxCodeLength = 600 }) => {
 
@@ -14,6 +14,8 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
   const { id } = useParams()
 
   const fileRef = useRef()
+
+  const navigate = useNavigate()
 
   const [filesHovered, setFilesHovered] = useState(false)
   const [files, setFiles] = useState(0)
@@ -56,16 +58,18 @@ export const SippetEditorFooter = ({ op, blocks, setBlocks, setError, addCodeBlo
     fileRef.current.files = dt.files;
   }
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (op == 'sippet') {
-      sendSippet(blocks, lang, [], setError, fileRef.current.files[0])
+      const sippet_id = await sendSippet(blocks, lang, [], setError, fileRef.current.files[0])
       setBlocks([{ type: "text", value: "" }])
       setError('')
+      if (sippet_id) navigate('/sippet/' + sippet_id)
     }
     else {
-      sendSippet(blocks, lang, [], setError, fileRef.current.files[0], id)
+      const sippet_id = await sendSippet(blocks, lang, [], setError, fileRef.current.files[0], id)
       setBlocks([{ type: "text", value: "" }])
       setError('')
+      if (sippet_id) navigate('/sippet/' + sippet_id)
     }
     fileRef.current.files = new DataTransfer().files
   }
