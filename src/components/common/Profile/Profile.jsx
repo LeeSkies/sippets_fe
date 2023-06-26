@@ -14,7 +14,7 @@ export const Profile = () => {
 
   const { id } = useParams()
 
-  const { user: { _id } } = useContext(UserContext)
+  const { user: current } = useContext(UserContext)
   // const { conversations, setCurrentReceiver } = useContext(WebsocketContext)
 
   const navigate = useNavigate()
@@ -71,7 +71,10 @@ export const Profile = () => {
         const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
     }
-    fetchUser()
+    if (id == current._id)
+      setUser(current)
+    else
+      fetchUser()
   }, [id])
 
   useEffect(() => {
@@ -118,7 +121,7 @@ export const Profile = () => {
           {user.bio && user.bio.length >= 400 && <button onClick={() => setBio(prev => !prev)} className='text-blue-300 self-start'>{bio ? 'close' : 'read more'}</button>}
         </article>
           <ProfileFollowBar user={user} />
-          <ProfileNav _id={_id} id={id} display={display} setDisplay={setDisplay} changeDisplay={changeDisplay} />
+          <ProfileNav display={display} setDisplay={setDisplay} changeDisplay={changeDisplay} />
       </section>
       <SippetsFeed sippets={display == 'sippets' ? sippets : comments} />
       {!loading && (display === 'sippets' ? sippets.length : comments.length) != 0 && (display === 'sippets' ? sippets.length : comments.length) % 10 == 0 && <button onClick={() => setPage(page + 1)}
