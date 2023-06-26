@@ -83,7 +83,7 @@ export const UserSippetPage = () => {
         </article>}
         {loggedIn && <SippetEditor op='comment' />}
         <section className=''>
-          <SippetsFeed sippets={sippet.comments} />
+          {/* <SippetsFeed sippets={sippet.comments} /> */}
         </section>
     </div>
   )
