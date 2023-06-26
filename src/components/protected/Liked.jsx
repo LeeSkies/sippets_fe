@@ -4,6 +4,7 @@ import { UserContext } from '../../context/userContext'
 import { Title } from '../common/Title'
 import { SippetsFeed } from '../sippets/SippetsFeed'
 import instance from '../../services/axios'
+import { SippetSkeleton } from '../utilities/SippetSkeleton'
 
 export const Liked = () => {
 
@@ -13,6 +14,7 @@ export const Liked = () => {
 
   const [sippets, setSippets] = useState([])
   const [page, setPage] = useState(0)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchLikedSippets = async (offset = 0) => {
@@ -24,6 +26,7 @@ export const Liked = () => {
       } catch (error) {
         alert(error.message);
       }
+      setLoading(false);
     };
     fetchLikedSippets(page)
   }, [])
@@ -31,7 +34,11 @@ export const Liked = () => {
   return (
     <div className='w-full pb-20 min-h-screen'>
       <Title title={'Liked'} />
-      <SippetsFeed sippets={sippets} />
+      {loading ? Array(5).fill(null).map((_, i) =>
+      <div key={i} className='w-full'>
+        <SippetSkeleton />
+      </div>)
+      : <SippetsFeed sippets={sippets} />}
     </div>
   )
 }
