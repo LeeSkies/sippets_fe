@@ -36,6 +36,8 @@ export const SippetDisplay = ({ sippet }) => {
     defCodeSrc()
   }, [])
 
+  const imgURL = sippet.is == 'toast' ? sippet.ref_sippet?.file?.secure_url : sippet?.file?.secure_url
+
   return (
    sippet != undefined ?
     <article className={`p-2 flex flex-col ${sippet.is == 'comment' && !id ? '' : 'border-t'} ${sippet.is == 'comment' ? 'relative after:bg-slate-500 after:absolute after:w-[1px] after:left-0 after:bottom-4 after:hidden after:h-[94%]' : ''} border-t-slate-600 bg-transparent relative`}>
@@ -66,10 +68,10 @@ export const SippetDisplay = ({ sippet }) => {
           {sippet.file &&
           <div className='rounded-xl aspect-square m-3 md:m-6 overflow-clip mt-3'>
             <img loading='lazy' onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
-            src={sippet.is == 'toast' ? sippet.ref_sippet.file.secure_url : sippet.file.secure_url} className='w-full' />
+            src={imgURL} className='w-full' />
           </div>}
           {console.log(sippet.is == 'toast' && sippet.ref_sippet.file.secure_url)}
-          {modal && <ImageModal cb={setModal} url={sippet.is == 'toast' ? sippet.ref_sippet.file.secure_url : sippet.file.secure_url} />}
+          {modal && <ImageModal cb={setModal} url={imgURL} />}
         <SippetDisplayFooter sippet={sippet} />
       </section>
     </article>
