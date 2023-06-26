@@ -15,13 +15,12 @@ export const Discover = () => {
     fetchWhoToFollow()
   }, [])
   return (
-    users.length <= 0 ?
-    <SippetSkeleton count={5} />
-    :
     <div className='w-full py-4'>
       <p className='font-extralight italic text-lg pb-1 pl-2'>You might be interested in:</p>
       <section className='border rounded border-slate-600 p-2 space-y-4'>
-        {users.map((user, i) => (
+        {users.length <= 0
+        ? <SippetSkeleton count={5} />
+        : users.map((user, i) => (
           <div key={i}>
             <DiscoverItem user={user} />
           </div>

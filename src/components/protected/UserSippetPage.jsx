@@ -74,11 +74,11 @@ export const UserSippetPage = () => {
               "h-10 w-10 md:h-14 ml-auto md:w-14 rounded overflow-clip flex items-center justify-center"
             }
           >
-            {user?.image?.secure_url ?
+            {/* {user?.image?.secure_url ?
             <ImageComp url={user.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} /> : 
             <p className="font-bold ">
               {user.username.charAt(0).toUpperCase()}
-            </p>}
+            </p>} */}
           </button>
         </article>}
         {loggedIn && <SippetEditor op='comment' />}
