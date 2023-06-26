@@ -72,7 +72,7 @@ export const Profile = () => {
         setUser(data)
     }
     fetchUser()
-  }, [])
+  }, [id])
 
   useEffect(() => {
     if (display == 'sippets') {
