@@ -42,7 +42,7 @@ export const SippetDisplay = ({ sippet }) => {
    sippet != undefined ?
     <article className={`p-2 flex flex-col ${sippet.is == 'comment' && !id ? '' : 'border-t'} ${sippet.is == 'comment' ? 'relative after:bg-slate-500 after:absolute after:w-[1px] after:left-0 after:bottom-4 after:hidden after:h-[94%]' : ''} border-t-slate-600 bg-transparent relative`}>
       <section className='w-full flex flex-col'>
-        {/* {<SippetDisplayHeader sippet={sippet.is == 'toast' ? sippet.ref_sippet : sippet} toastAuthor={sippet.is == 'toast' && sippet.author} />} */}
+        {<SippetDisplayHeader sippet={sippet.is == 'toast' ? sippet.ref_sippet : sippet} toastAuthor={sippet.is == 'toast' && sippet.author} />}
         <article onWheel={handleWheel} className={`container flex w-full justify-center flex-col items-center p-1 bg-neutral800`}>
           {code.blocks && code.blocks.map((block, i) => (
             block.type === 'text' ?
