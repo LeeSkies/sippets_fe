@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DiscoverItem } from './DiscoverItem'
 import instance from '../../../services/axios'
+import { SippetSkeleton } from '../../utilities/SippetSkeleton'
 
 export const Discover = () => {
 
@@ -14,6 +15,9 @@ export const Discover = () => {
     fetchWhoToFollow()
   }, [])
   return (
+    users.length <= 0 ?
+    <SippetSkeleton count={5} />
+    :
     <div className='w-full py-4'>
       <p className='font-extralight italic text-lg pb-1 pl-2'>You might be interested in:</p>
       <section className='border rounded border-slate-600 p-2 space-y-4'>
