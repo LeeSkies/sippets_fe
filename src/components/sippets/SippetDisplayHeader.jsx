@@ -94,7 +94,7 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
       )}
       <article className="w-full flex justify-between items-center">
         {loggedIn && sippet._id == id && user._id != sippet.author._id && (
-          <button
+          <button disabled={loading}
             onClick={(e) => followed ? setModal(true) : handleFollow()}
             className={`flex justify-center items-center rounded-full text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
               loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
