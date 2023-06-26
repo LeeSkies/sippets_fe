@@ -22,7 +22,7 @@ export const ProtectedProfile = () => {
   const [page, setPage] = useState(1)
   const [bio, setBio] = useState(false)
   const [modal, setModal] = useState(false)
-  const [followed, setFollowed] = useState(user.followed)
+  const [followed, setFollowed] = useState(user?.followed)
 
   const trimString = (str, charLimit) => {
     const index = str.substring(0, charLimit).lastIndexOf(' ');
