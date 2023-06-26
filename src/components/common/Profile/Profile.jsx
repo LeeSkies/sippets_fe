@@ -42,6 +42,7 @@ export const Profile = () => {
     return
   }
   const fetchSippets = async () => {
+    console.log('f');
     const { data } = await instance.get(`/public/sippet/user/${id}?offset=${sippets.length / 10}`, {
         withCredentials: true,
       })
@@ -49,7 +50,7 @@ export const Profile = () => {
     setLoading(false)
     return
   }
-
+console.log(page);
   const changeDisplay = async (type) => {
 
     if (type == 'comments' && comments.length <= 0)
