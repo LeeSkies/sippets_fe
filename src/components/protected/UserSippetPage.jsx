@@ -9,12 +9,14 @@ import { SippetsFeed } from '../sippets/SippetsFeed'
 import { Sippet } from '../sippets/Sippet'
 import { ImageComp } from '../common/ImageComp'
 import instance from '../../services/axios'
+import { SippetSkeleton } from '../utilities/SippetSkeleton'
 
 export const UserSippetPage = () => {
 
     const { id } = useParams()
 
     const [sippet, setSippet] = useState()
+    const [loading, setLoading] = useState(true)
 
     const { loggedIn, user } = useContext(UserContext)
 
@@ -54,12 +56,15 @@ export const UserSippetPage = () => {
       const getSippet = async () => {
         const { data } = await instance.get(`/protected/sippet/single/${id}`,{ withCredentials: true })
         setSippet(data)
+        setLoading(false)
       }
       getSippet()
     }, [id])
 
   return (
-    sippet && <div className='w-full min-h-screen'>
+    loading ? <SippetSkeleton count={5} icon={true} /> : 
+    sippet ?
+    <div className='w-full min-h-screen'>
       <Title title={'Sippet'} />
         <Sippet sippet={sippet} />
         {console.log(sippet)}
@@ -86,6 +91,7 @@ export const UserSippetPage = () => {
         <section className=''>
           <SippetsFeed sippets={sippet.comments} />
         </section>
-    </div>
+    </div> :
+    <h1 className='w-full text-center p-2'>A problem occurred, please try again later</h1>
   )
 }
