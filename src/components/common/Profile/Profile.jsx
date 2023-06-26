@@ -14,7 +14,7 @@ export const Profile = () => {
 
   const { id } = useParams()
 
-  const { user: current } = useContext(UserContext)
+  const { user: current, loggedIn } = useContext(UserContext)
   // const { conversations, setCurrentReceiver } = useContext(WebsocketContext)
 
   const navigate = useNavigate()
@@ -57,14 +57,27 @@ export const Profile = () => {
     setDisplay(type)
   }
 
-  // const handleChatNavigation = () => {
-  //   const is = conversations.find(c => c.participants.find(p => p._id == user._id))
-  //   if (is) navigate('/messages/' + is._id)
-  //   else {
-  //     setCurrentReceiver(user)
-  //     navigate('/messages/0')  
-  //   }
-  // }
+  const handleFollow = async () => {
+    if (!loggedIn) return;
+    setLoading(true)
+    try {
+      if (current._id == user._id) throw new Error("Cannot follow self");
+      const { data } = await instance.put(`/protected/user/follow/${user._id}`,
+        {},
+        { withCredentials: true }
+      );
+      if (data.op === "del") {
+        setFollowed(false);
+        toast.success('Updated successfully')
+      } else if (data.op === "add") {
+        setFollowed(true);
+      }
+      setFollowingSippets([])
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false)
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -113,11 +126,20 @@ export const Profile = () => {
           <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
             <div className='flex items-center space-x-2'>
               <span>{user.username}</span>
-              {/* {_id != user._id && <button onClick={handleChatNavigation} className='hover:text-slate-500'>
-                <EnvelopeIcon className='w-6 h-6' />
-              </button>} */}
             </div>
-            <span>Bio</span>
+            <div className='flex space-x-2'>
+              {loggedIn && current._id != id && (
+              <button disabled={loading}
+                onClick={(e) => followed ? setModal(true) : handleFollow()}
+                className={`flex justify-center items-center rounded text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
+                  loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
+                }`}
+              >
+                {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "following" : "follow"}
+              </button>
+              )}
+              <span>Bio</span>
+            </div>
           </div>
           <div className='container box-content'>
             <p className='bg-transparent w-full whitespace-pre-line text-sm'>

@@ -103,7 +103,6 @@ export const SippetDisplayHeader = ({ sippet, toastAuthor = null }) => {
             {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "following" : "follow"}
           </button>
         )}
-
         <div className="grow"></div>
         <section className="flex items-center justify-end space-x-1">
           <p className="text-slate-400 text-xs">
