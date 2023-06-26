@@ -62,7 +62,7 @@ export const UserSippetPage = () => {
     }, [id])
 
   return (
-    loading ? <SippetSkeleton count={5} icon={true} /> : 
+    loading ? <div className='w-full'><Title title={'Sippet'} /><SippetSkeleton count={5} icon={true} /></div> : 
     sippet ?
     <div className='w-full min-h-screen'>
       <Title title={'Sippet'} />
