@@ -91,10 +91,10 @@ export const Profile = () => {
         <Title title={'Profile'} />
       </header>
       <section className='w-full p-3'>
-        <article className='w-full p-1 pb-8 border-b border-b-slate-600 items-center flex flex-col space-y-3'>
+        <article className='w-full p-1 pb-8 border-b border-b-slate-600 items-center flex flex-col space-y-3 object-cover'>
           {user.image ? 
           <img onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
-          src={user.image.secure_url.replace('upload/', 'upload/c_scale,w_0.50/')} className='rounded-md w-full aspect-square min-h-full' />
+          src={user.image.secure_url.replace('upload/', 'upload/c_scale,w_0.50/')} className='rounded-md object-cover w-full aspect-square min-h-full' />
           :
           <figure className='bg-gradient-to-b from-sky-900 to-red-300 w-full flex justify-center items-center text-4xl font-bold text-slate-800 aspect-square mx-auto rounded-md'>
             {user.username.charAt(0).toUpperCase()}
