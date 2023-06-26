@@ -128,7 +128,7 @@ export const ProtectedProfile = () => {
             <div className='flex items-center space-x-2'>
               <span>{user.username}</span>
             </div>
-            <div className='flex space-x-2'>
+            <div className='flex space-x-2 items-center'>
               {loggedIn && current._id != id && (
                 <button disabled={loading}
                   onClick={(e) => handleFollow()}
