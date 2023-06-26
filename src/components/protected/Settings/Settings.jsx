@@ -67,7 +67,7 @@ export const Settings = () => {
         <PicSettings edit={edit} open={open} setEdit={setEdit} handleClick={handleClick} user={user} />
         <BioSettings edit={edit} open={open} setEdit={setEdit} handleClick={handleClick} />
       </section>
-      <button onClick={updateDetails} className='w-[300px] flex justify-center items-center self-center h-14 bg-green-600 rounded-md active:scale-95 hover:bg-green-700 duration-300 mb-4'>
+      <button disabled={loading} onClick={updateDetails} className='w-[300px] flex justify-center items-center self-center h-14 bg-green-600 rounded-md active:scale-95 hover:bg-green-700 duration-300 mb-4'>
         {loading ? <div className='rounded-full h-5 w-5 border border-b-sky-400 animate-spin'></div> : 'save'}
       </button>
     </div>

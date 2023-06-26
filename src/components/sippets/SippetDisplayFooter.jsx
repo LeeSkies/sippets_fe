@@ -8,15 +8,15 @@ import instance from '../../services/axios'
 
 export const SippetDisplayFooter = ({ sippet }) => {
 
-    const { setCommentingOn } = useContext(CommentContext)
     const { loggedIn, user } = useContext(UserContext)
     const [isLiked, setIsLiked] = useState(sippet.liked)
-    const [isToasted, setIsToasted] = useState(sippet.toasted || false)
     const [menu, setMenu] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleLike = async () => {
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
+        setLoading(true);
         try {
           const { data: {op} } = await instance.put(`/protected/sippet/like/${sippet._id}`,
             {},
@@ -34,12 +34,14 @@ export const SippetDisplayFooter = ({ sippet }) => {
           console.log(error);
           alert(error.message);
         }
+        setLoading(false);
     };
 
     const handleToast = async () => {
       if (sippet.is == 'toast') return;
         if (!loggedIn) return;
         if (sippet.author._id == user._id) return
+        setLoading(true);
         try {
             const { message } = await instance.post(`/protected/sippet/toast/${sippet._id}`,
               {},
@@ -52,6 +54,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
             console.log(error);
             alert(error.message);
           }
+          setLoading(false);
     }
 
     const handleClick = (e, cb) => {
@@ -75,13 +78,13 @@ export const SippetDisplayFooter = ({ sippet }) => {
                 <p className='text-slate-500'>{sippet.commentsCount}</p>
             </figure>
             {sippet.is != 'toast' && <figure className='flex items-center'>
-                <button onClick={(e) => loggedIn ? handleClick(e, handleToast) : e.stopPropagation()} className='text-green-700 hover:animate-spin ease-in-out rounded-full'>
+                <button disabled={loading} onClick={(e) => loggedIn ? handleClick(e, handleToast) : e.stopPropagation()} className='text-green-700 hover:animate-spin ease-in-out rounded-full'>
                     <ArrowPathIcon className='w-5 h-5' />
                 </button>
                 <p className='text-slate-500'>{sippet.toastsCount}</p>
             </figure>}
             <figure className='flex items-center'>
-                <button onClick={(e) => loggedIn ? handleClick(e, handleLike) : e.stopPropagation()} className={'hover:animate-heartbeat text-rose-800 rounded-full hover:text-rose-800'}>
+                <button disabled={loading} onClick={(e) => loggedIn ? handleClick(e, handleLike) : e.stopPropagation()} className={'hover:animate-heartbeat text-rose-800 rounded-full hover:text-rose-800'}>
                     {isLiked ? <SolidHeartIcon className='w-5 h-5 animate-jump' />
                     : <HeartIcon className='w-5 h-5' />}
                 </button>
