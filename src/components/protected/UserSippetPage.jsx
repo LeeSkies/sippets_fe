@@ -61,7 +61,7 @@ export const UserSippetPage = () => {
   return (
     sippet && <div className='w-full min-h-screen'>
       <Title title={'Sippet'} />
-        {/* <Sippet sippet={sippet} /> */}
+        <Sippet sippet={sippet} />
         {console.log(sippet)}
         {loggedIn && <article className='w-full flex justify-between p-2 items-center'>
         <button
