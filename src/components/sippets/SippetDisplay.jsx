@@ -69,7 +69,7 @@ export const SippetDisplay = ({ sippet }) => {
             src={sippet.file.secure_url} className='w-full' />
           </div>}
           {console.log(sippet.is == 'toast' && sippet.ref_sippet.file.secure_url)}
-          {modal && <ImageModal cb={setModal} url={sippet.is == 'toast' ? sippet.ref_sippet.file.secure_url : sippet.file.secure_url} />}
+          {modal && <ImageModal cb={setModal} url={'https://res.cloudinary.com/db7vikkkf/image/upload/v1687646202/oal9cbly9shwc0lalant.jpg'} />}
         <SippetDisplayFooter sippet={sippet} />
       </section>
     </article>
