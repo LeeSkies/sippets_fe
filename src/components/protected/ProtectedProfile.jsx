@@ -129,7 +129,7 @@ export const ProtectedProfile = () => {
               {loggedIn && current._id != id && (
                 <button disabled={loading}
                   onClick={(e) => handleFollow()}
-                  className={`flex justify-center items-center rounded text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
+                  className={`flex justify-center text-base font-normal items-center rounded text-neutral-300 w-20 h-7 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
                     loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
                   }`}
                 >
