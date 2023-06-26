@@ -24,6 +24,7 @@ export const ProtectedProfile = () => {
   const [bio, setBio] = useState(false)
   const [modal, setModal] = useState(false)
   const [followed, setFollowed] = useState(user?.followed)
+  const [initLoading, setInitLoading] = useState(true)
 
   const trimString = (str, charLimit) => {
     const index = str.substring(0, charLimit).lastIndexOf(' ');
@@ -43,7 +44,7 @@ export const ProtectedProfile = () => {
         withCredentials: true,
       })
     setSippets([...sippets, ...data])
-    setLoading(false)
+    setInitLoading(false)
     return
   }
 
@@ -106,7 +107,7 @@ export const ProtectedProfile = () => {
   }, [page])
 
   return (
-    loading ? <SippetSkeleton icon={true} count={7} />
+    initLoading ? <SippetSkeleton icon={true} count={7} />
     : user && <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
       <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
       </div>
