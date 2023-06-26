@@ -103,57 +103,57 @@ export const ProtectedProfile = () => {
     }
   }, [page])
 
-  // return (
-  //   user && <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
-  //     <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
-  //     </div>
-  //     <header className='self-start'>
-  //       <Title title={'Profile'} />
-  //     </header>
-  //     <section className='w-full p-3'>
-  //       <article className='w-full p-1 pb-8 border-b border-b-slate-600 items-center flex flex-col space-y-3 object-cover'>
-  //         {user.image ? 
-  //         <img onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
-  //         src={user.image.secure_url.replace('upload/', 'upload/c_scale,w_0.50/')} className='rounded-md object-cover w-full aspect-square min-h-full' />
-  //         :
-  //         <figure className='bg-gradient-to-b from-sky-900 to-red-300 w-full flex justify-center items-center text-4xl font-bold text-slate-800 aspect-square mx-auto rounded-md'>
-  //           {user.username.charAt(0).toUpperCase()}
-  //         </figure>}
-  //         {modal &&
-  //           <ImageModal url={user.image.secure_url} cb={setModal} />}
-  //         <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
-  //           <div className='flex items-center space-x-2'>
-  //             <span>{user.username}</span>
-  //           </div>
-  //           <div className='flex space-x-2'>
-  //             {loggedIn && current._id != id && (
-  //               <button disabled={loading}
-  //                 onClick={(e) => handleFollow()}
-  //                 className={`flex justify-center items-center rounded text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
-  //                   loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
-  //                 }`}
-  //               >
-  //                 {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "following" : "follow"}
-  //               </button>
-  //             )}
-  //             <span>Bio</span>
-  //           </div>
-  //         </div>
-  //         <div className='container box-content'>
-  //           <p className='bg-transparent w-full whitespace-pre-line text-sm'>
-  //             {user.bio && bio ? user.bio : trimString(user.bio, 400)}
-  //           </p>
-  //         </div>
-  //         {user.bio && user.bio.length >= 400 && <button onClick={() => setBio(prev => !prev)} className='text-blue-300 self-start'>{bio ? 'close' : 'read more'}</button>}
-  //       </article>
-  //         <ProfileFollowBar user={user} />
-  //         <ProfileNav display={display} setDisplay={setDisplay} changeDisplay={changeDisplay} />
-  //     </section>
-  //     <SippetsFeed sippets={display == 'sippets' ? sippets : comments} />
-  //     {!loading && (display === 'sippets' ? sippets.length : comments.length) != 0 && (display === 'sippets' ? sippets.length : comments.length) % 10 == 0 && <button onClick={() => setPage(page + 1)}
-  //       className='w-full p-2 hover:bg-slate-800 duration-300'>
-  //       load more
-  //     </button>}
-  //   </div>
-  // )
+  return (
+    user && <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
+      <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
+      </div>
+      <header className='self-start'>
+        <Title title={'Profile'} />
+      </header>
+      <section className='w-full p-3'>
+        <article className='w-full p-1 pb-8 border-b border-b-slate-600 items-center flex flex-col space-y-3 object-cover'>
+          {user.image ? 
+          <img onClick={(e) => {e.stopPropagation(), setModal(prev => !prev)}}
+          src={user.image.secure_url.replace('upload/', 'upload/c_scale,w_0.50/')} className='rounded-md object-cover w-full aspect-square min-h-full' />
+          :
+          <figure className='bg-gradient-to-b from-sky-900 to-red-300 w-full flex justify-center items-center text-4xl font-bold text-slate-800 aspect-square mx-auto rounded-md'>
+            {user.username.charAt(0).toUpperCase()}
+          </figure>}
+          {modal &&
+            <ImageModal url={user.image.secure_url} cb={setModal} />}
+          <div className='w-full text-2xl flex justify-between py-2 font-thin border-b border-b-slate-600'>
+            <div className='flex items-center space-x-2'>
+              <span>{user.username}</span>
+            </div>
+            <div className='flex space-x-2'>
+              {loggedIn && current._id != id && (
+                <button disabled={loading}
+                  onClick={(e) => handleFollow()}
+                  className={`flex justify-center items-center rounded text-neutral-300 w-20 h-8 border border-neutral-700 active:scale-95 shadow-slate-100 duration-300 ${
+                    loggedIn && followed ? "bg-neutral-800" : "bg-neutral-700"
+                  }`}
+                >
+                  {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div> : loggedIn && followed ? "following" : "follow"}
+                </button>
+              )}
+              <span>Bio</span>
+            </div>
+          </div>
+          <div className='container box-content'>
+            <p className='bg-transparent w-full whitespace-pre-line text-sm'>
+              {user.bio && bio ? user.bio : trimString(user.bio, 400)}
+            </p>
+          </div>
+          {user.bio && user.bio.length >= 400 && <button onClick={() => setBio(prev => !prev)} className='text-blue-300 self-start'>{bio ? 'close' : 'read more'}</button>}
+        </article>
+          <ProfileFollowBar user={user} />
+          <ProfileNav display={display} setDisplay={setDisplay} changeDisplay={changeDisplay} />
+      </section>
+      <SippetsFeed sippets={display == 'sippets' ? sippets : comments} />
+      {!loading && (display === 'sippets' ? sippets.length : comments.length) != 0 && (display === 'sippets' ? sippets.length : comments.length) % 10 == 0 && <button onClick={() => setPage(page + 1)}
+        className='w-full p-2 hover:bg-slate-800 duration-300'>
+        load more
+      </button>}
+    </div>
+  )
 }
