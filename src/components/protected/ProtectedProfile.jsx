@@ -7,6 +7,7 @@ import { ImageModal } from '../common/ImageModal';
 import { ProfileFollowBar } from '../common/Profile/ProfileFollowBar';
 import { ProfileNav } from '../common/Profile/ProfileNav';
 import { SippetsFeed } from '../sippets/SippetsFeed';
+import { SippetSkeleton } from '../utilities/SippetSkeleton';
 
 export const ProtectedProfile = () => {
 
@@ -104,7 +105,7 @@ export const ProtectedProfile = () => {
   }, [page])
 
   return (
-    user && <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
+    user ? <div className="relative bg-no-repeat bg-cover flex flex-col items-center w-full min-h-screen [&_*]:-10 pb-4" >
       <div className='absolute -z-10 w-full left-0 right-0 top-0 h-[90vh] bg-gradient-to-b from-[#1e1e1f] to-transparent pb-20'>
       </div>
       <header className='self-start'>
@@ -155,5 +156,6 @@ export const ProtectedProfile = () => {
         load more
       </button>}
     </div>
+    : <SippetSkeleton icon={true} count={7} />
   )
 }
