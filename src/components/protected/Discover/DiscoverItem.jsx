@@ -39,7 +39,7 @@ export const DiscoverItem = ({ user }) => {
                   {user.username.charAt(0).toUpperCase()}
                 </p>}
         </article>
-        <p className='text-xl'>{user.username}</p>
+        <p className='text-xl whitespace-nowrap'>{user.username}</p>
     </button>
   )
 }

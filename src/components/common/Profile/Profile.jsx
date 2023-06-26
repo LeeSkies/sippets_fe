@@ -71,9 +71,9 @@ export const Profile = () => {
         const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
     }
-    if (id == current._id)
-      setUser(current)
-    else
+    // if (id == current._id)
+    //   setUser(current)
+    // else
       fetchUser()
   }, [id])
 
