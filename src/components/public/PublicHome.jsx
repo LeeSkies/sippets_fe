@@ -37,7 +37,7 @@ export const PublicHome = () => {
       {!loading && sippets.length > 0 && <SippetsFeed sippets={sippets} />}
       {loading && new Array(5).fill(null).map((_ , i) => (
         <div key={i} className='w-full'>
-          <SippetSkeleton />
+          <SippetSkeleton icon={true} />
         </div>))}
         {sippets.length > 0 && sippets.length % 10 != 0 && <button onClick={() => setPage(prev => prev + 1)}
         className='w-full p-2 hover:bg-slate-800 duration-300'>
