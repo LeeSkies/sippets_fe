@@ -78,13 +78,13 @@ export const SippetDisplayFooter = ({ sippet }) => {
                 <p className='text-slate-500'>{sippet.commentsCount}</p>
             </figure>
             {sippet.is != 'toast' && <figure className='flex items-center'>
-                <button disabled={loading} onClick={(e) => loggedIn ? handleClick(e, handleToast) : e.stopPropagation()} className='text-green-700 hover:animate-spin ease-in-out rounded-full'>
+                <button onClick={(e) => loggedIn && !loading ? handleClick(e, handleToast) : e.stopPropagation()} className='text-green-700 hover:animate-spin ease-in-out rounded-full'>
                     <ArrowPathIcon className='w-5 h-5' />
                 </button>
                 <p className='text-slate-500'>{sippet.toastsCount}</p>
             </figure>}
             <figure className='flex items-center'>
-                <button disabled={loading} onClick={(e) => loggedIn ? handleClick(e, handleLike) : e.stopPropagation()} className={'hover:animate-heartbeat text-rose-800 rounded-full hover:text-rose-800'}>
+                <button onClick={(e) => loggedIn && !loading ? handleClick(e, handleLike) : e.stopPropagation()} className={'hover:animate-heartbeat text-rose-800 rounded-full hover:text-rose-800'}>
                     {isLiked ? <SolidHeartIcon className='w-5 h-5 animate-jump' />
                     : <HeartIcon className='w-5 h-5' />}
                 </button>
