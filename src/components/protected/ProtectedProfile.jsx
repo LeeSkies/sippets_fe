@@ -22,6 +22,7 @@ export const ProtectedProfile = () => {
   const [page, setPage] = useState(1)
   const [bio, setBio] = useState(false)
   const [modal, setModal] = useState(false)
+  const [followed, setFollowed] = useState(user.followed)
 
   const trimString = (str, charLimit) => {
     const index = str.substring(0, charLimit).lastIndexOf(' ');
@@ -78,6 +79,7 @@ export const ProtectedProfile = () => {
     const fetchUser = async () => {
         const { data } = await instance.get(`/public/user/${id}`)
         setUser(data)
+        setFollowed(data.followed)
     }
     if (id == current._id)
       setUser(current)
