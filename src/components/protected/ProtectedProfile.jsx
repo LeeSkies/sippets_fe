@@ -86,8 +86,10 @@ export const ProtectedProfile = () => {
     }
     if (id == current._id)
       setUser(current)
-    else
+    else {
       fetchUser()
+      setLoading(false)
+    }
   }, [id])
 
   useEffect(() => {
