@@ -5,7 +5,7 @@ import { UserContext } from '../../context/userContext'
 
 export const Title = ({ title }) => {
 
-  const { loggedIn, user } = useContext(UserContext)
+  const { loggedIn, user, logout } = useContext(UserContext)
 
   const navigate = useNavigate()
 

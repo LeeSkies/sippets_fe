@@ -67,11 +67,15 @@ export const UserProvider = ({ children }) => {
     if (cb) cb(true)
   };
 
-  const logout = () => {
+  const logout = async () => {
     setLoggedIn(false);
     setUser(null);
-    localStorage.removeItem('xz')
-    history.pushState({}, {}, '/')
+    try {
+      await instance.get('/protected/user/logout')
+      history.pushState({}, {}, '/')
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
