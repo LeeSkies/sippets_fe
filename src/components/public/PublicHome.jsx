@@ -21,13 +21,12 @@ export const PublicHome = () => {
           withCredentials: true,
         });
         setSippets([...sippets, ...data]);
-        // data.map(s => s.blocks.map(b => console.log(b.value)))
       } catch (error) {
-        alert(error.message);
+        console.log(error.message);
       }
+      setLoading(false);
     };
     fetchSippets(page)
-    setLoading(false);
   }, [page])
 
   return (
