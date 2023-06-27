@@ -68,10 +68,10 @@ export const UserProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    setLoggedIn(false);
-    setUser(null);
     try {
       await instance.get('/protected/user/logout')
+      setLoggedIn(false);
+      setUser(null);
       history.pushState({}, {}, '/')
     } catch (error) {
       console.log(error.message);
