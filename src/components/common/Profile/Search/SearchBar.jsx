@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 export const SearchBar = () => {
     const inputRef = useRef()
   return (
-    <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-300 to-transparent'>
+    <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent'>
         <input ref={inputRef} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none' />
         <button className=''>
             <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />
