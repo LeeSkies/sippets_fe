@@ -9,7 +9,7 @@ export const UserResult = ({ result }) => {
   return (
     <button onClick={() => navigate('/user/' + result._id)} className='w-full p-2 hover:bg-sky-200 duration-200'>
       <UserHeader result={result} />
-      <footer>Footer</footer>
+      <footer></footer>
     </button>
   )
 }
