@@ -4,6 +4,7 @@ import { Title } from '../common/Title'
 import { SippetSkeleton } from '../utilities/SippetSkeleton'
 import { SippetsFeed } from '../sippets/SippetsFeed'
 import { SippetsContext } from '../../context/sippetsContext'
+import { Search } from '../common/Profile/Search/Search'
 
 export const UserHome = () => {
 
@@ -48,6 +49,7 @@ export const UserHome = () => {
         <button onClick={() => changeDisplay('latest')} className={`text-xl grow p-4 md:p-8 ${display == 'latest' && 'border-b box-border'}`}>Latest</button>
         <button onClick={() => changeDisplay('following')} className={`text-xl grow p-4 md:p-8 ${display == 'following' && 'border-b box-border'}`}>Following</button>
       </nav>
+      <Search />
       {/* <SippetsFeed sippets={display == 'latest' ? latestSippets : followingSippets} /> */}
       {sippets.length > 0 && <SippetsFeed sippets={sippets} />}
       {loading && new Array(5).fill(null).map((_ , i) => (

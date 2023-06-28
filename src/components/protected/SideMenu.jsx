@@ -34,9 +34,9 @@ export const SideMenu = ({ }) => {
   return (
     <aside>
         <button onClick={() => setOpen(prev => !prev)} className='flex flex-col space-y-[3px] w-6'>
-            <div className='w-full rounded-full h-[3px] bg-black'></div>
-            <div className='w-full rounded-full h-[3px] bg-black'></div>
-            <div className='w-full rounded-full h-[3px] bg-black'></div>
+            <div className='w-full rounded-full h-[3px] bg-slate-300'></div>
+            <div className='w-full rounded-full h-[3px] bg-slate-300'></div>
+            <div className='w-full rounded-full h-[3px] bg-slate-300'></div>
         </button>
         <div className={`fixed flex items-center z-20 top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`} >
             <button className='p-2 rounded-full text-black' onClick={() => setOpen(prev => !prev)}><ArrowRightIcon className='w-5 h-5'/></button>
