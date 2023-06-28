@@ -34,7 +34,7 @@ export const SideMenu = ({ }) => {
 
   return (
     <aside>
-        <button onClick={setOpen(prev => !prev)} className='flex flex-col space-y-2 w-10'>
+        <button className='flex flex-col space-y-2 w-10'>
             <div className='w-full rounded-full h-2 bg-black'></div>
             <div className='w-full rounded-full h-2 bg-black'></div>
             <div className='w-full rounded-full h-2 bg-black'></div>
