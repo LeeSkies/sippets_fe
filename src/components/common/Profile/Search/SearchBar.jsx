@@ -35,7 +35,7 @@ export const SearchBar = ({ setResults }) => {
         </button>
         <input ref={inputRef} onChange={debouncedOnChange} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <div disabled={true} className=''>
-            {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div>
+            {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin mr-2'></div>
             : <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />}
         </div>
     </section>
