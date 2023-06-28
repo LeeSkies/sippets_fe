@@ -4,7 +4,7 @@ import { ImageComp } from '../../ImageComp'
 export const TextResult = ({ result }) => {
 
     const buildStr = (maxLen) => {
-        let sb
+        let sb = ''
         result.blocks.map(b => {
             if (sb.length > len) return
             const len = maxLen - sb.length
