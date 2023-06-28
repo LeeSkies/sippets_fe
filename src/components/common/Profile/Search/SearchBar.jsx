@@ -13,15 +13,16 @@ export const SearchBar = ({ setResults }) => {
         setParam(prev => prev == 'text' ? 'user' : 'text')
     }
 
-    const onReset = () => {
-        setResults([])
-    }
-
     const debouncedOnChange = debounce(async () => {
         const val = inputRef.current.value;
+        if (val == '') {
+            setResults([])
+            return
+        }
         const { data } = await instance.get(`/public/search/${param}?text=${val}`);
         setResults(data)
-      }, 2000);
+        console.log(data);
+      }, 1000);
 
   return (
     <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-neutral-900 pl-1'>
@@ -29,7 +30,7 @@ export const SearchBar = ({ setResults }) => {
             <p className='pb-[2px] grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
-        <input ref={inputRef} onChange={inputRef.current?.value.length > 0 ? debouncedOnChange : onReset} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
+        <input ref={inputRef} onChange={debouncedOnChange} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <button className=''>
             <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />
         </button>
