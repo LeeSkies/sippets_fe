@@ -8,6 +8,8 @@ export const SearchBar = ({ setResults }) => {
     const [param, setParam] = useState('text')
 
     const handleClick = () => {
+        setResults([])
+        inputRef.current.value = ''
         setParam(prev => prev == 'text' ? 'user' : 'text')
     }
 
