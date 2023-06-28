@@ -12,7 +12,7 @@ export const SearchBar = () => {
     <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent'>
         <button onClick={handleChange} className='w-[100px] rounded-full p-1 px-2 space-x-1 bg-sky-300 flex text-black items-center'>
             <p className='pb-1 grow'>{param}</p>
-            <ArrowPathRoundedSquareIcon className='w-5 h-5' />
+            <ArrowPathRoundedSquareIcon className='w-4 h-4' />
         </button>
         <input ref={inputRef} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <button className=''>
