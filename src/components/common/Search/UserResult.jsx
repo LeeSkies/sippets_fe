@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserHeader } from './UserHeader'
-import { result } from 'lodash'
 
 export const UserResult = ({ result }) => {
 
