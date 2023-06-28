@@ -8,7 +8,7 @@ export const Search = () => {
   return (
     <div className='w-full relative py-2 border-t border-t-slate-600'>
         <SearchBar results={results} setResults={setResults} />
-        <ResultsDisplay results={results} setResults={setResults} />
+        {/* <ResultsDisplay results={results} setResults={setResults} /> */}
     </div>
   )
 }
