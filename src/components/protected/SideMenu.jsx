@@ -34,12 +34,12 @@ export const SideMenu = ({ }) => {
 
   return (
     <aside>
-        <button className='flex flex-col space-y-2 w-10'>
-            <div className='w-full rounded-full h-2 bg-black'></div>
-            <div className='w-full rounded-full h-2 bg-black'></div>
-            <div className='w-full rounded-full h-2 bg-black'></div>
+        <button className='flex flex-col space-y-2 w-10 border'>
+            <div className='w-full rounded-full h-1 bg-black'></div>
+            <div className='w-full rounded-full h-1 bg-black'></div>
+            <div className='w-full rounded-full h-1 bg-black'></div>
         </button>
-        <section className={`duration-300 ${open ? '' : 'translate-x-full'}`}>
+        <section className={`fixed top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`}>
             {links.map((link, i) => (
                 <div className='p-2'>{link.name}</div>
             ))}
