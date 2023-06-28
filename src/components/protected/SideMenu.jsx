@@ -6,10 +6,11 @@ import instance from '../../services/axios'
 
 export const SideMenu = ({ }) => {
     
-    const { notifications, setNotifications, setLoading } = useContext(NotificationsContext)
+    const { notifications, setNotifications } = useContext(NotificationsContext)
     const { user } = useContext(UserContext)
 
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
+    const open = false
     console.log('actually');
 
     const links = [
