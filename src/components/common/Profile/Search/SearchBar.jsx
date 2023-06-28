@@ -6,6 +6,7 @@ import { debounce } from 'lodash'
 export const SearchBar = ({ setResults }) => {
     const inputRef = useRef()
     const [param, setParam] = useState('text')
+    const [loading, setLoading] = useState(false)
 
     const handleClick = () => {
         setResults([])
@@ -14,6 +15,7 @@ export const SearchBar = ({ setResults }) => {
     }
 
     const debouncedOnChange = debounce(async () => {
+        setLoading(true)
         const val = inputRef.current.value;
         if (val == '') {
             setResults([])
@@ -22,6 +24,7 @@ export const SearchBar = ({ setResults }) => {
         const { data } = await instance.get(`/public/search/${param}?text=${val}`);
         setResults(data)
         console.log(data);
+        setLoading(false);
       }, 1000);
 
   return (
@@ -31,9 +34,10 @@ export const SearchBar = ({ setResults }) => {
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
         <input ref={inputRef} onChange={debouncedOnChange} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
-        <button className=''>
-            <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />
-        </button>
+        <div disabled={true} className=''>
+            {loading ? <div className='rounded-full h-3 w-3 border border-b-sky-400 animate-spin'></div>
+            : <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />}
+        </div>
     </section>
   )
 }
