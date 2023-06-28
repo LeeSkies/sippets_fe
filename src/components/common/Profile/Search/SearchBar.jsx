@@ -10,7 +10,7 @@ export const SearchBar = () => {
     }
   return (
     <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent'>
-        <button className='w-[100px] rounded-full bg-sky-400 flex items-center'>
+        <button className='w-[100px] rounded-full p-1 bg-sky-300 flex justify-center items-center'>
             <p>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-3 h-3 text-slate-300' />
         </button>
