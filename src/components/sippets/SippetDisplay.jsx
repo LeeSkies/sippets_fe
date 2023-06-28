@@ -37,6 +37,7 @@ export const SippetDisplay = ({ sippet }) => {
   }, [])
 
   const imgURL = sippet.is == 'toast' ? sippet.ref_sippet?.file?.secure_url : sippet?.file?.secure_url
+  console.log(sippet + '\nimg: ' + imgURL);
 
   return (
    sippet != undefined ?
