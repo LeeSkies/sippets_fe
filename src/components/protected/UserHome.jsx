@@ -4,7 +4,7 @@ import { Title } from '../common/Title'
 import { SippetSkeleton } from '../utilities/SippetSkeleton'
 import { SippetsFeed } from '../sippets/SippetsFeed'
 import { SippetsContext } from '../../context/sippetsContext'
-import { Search } from '../common/Profile/Search/Search'
+import { Search } from '../common/Search/Search'
 
 export const UserHome = () => {
 
