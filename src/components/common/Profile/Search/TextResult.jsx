@@ -6,7 +6,7 @@ export const TextResult = ({ result }) => {
     const buildStr = (maxLen) => {
         let sb = ''
         result.blocks.map(b => {
-            if (sb.length > len) return
+            if (sb.length > maxLen) return
             const len = maxLen - sb.length
             sb = sb + b.value.substring(0, len)
         })
