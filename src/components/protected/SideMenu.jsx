@@ -10,6 +10,7 @@ export const SideMenu = ({ }) => {
     const { user } = useContext(UserContext)
 
     const [open, setOpen] = useState(false)
+    console.log('actually');
 
     const links = [
         {icon: <HomeModernIcon className='w-6 h-6' /> , name: 'Home', to: '/'},
@@ -29,6 +30,7 @@ export const SideMenu = ({ }) => {
     }
     if (notifications.length <= 0) fetchNotifications()
   }, [])
+
   return (
     <aside>
         <button onClick={setOpen(prev => !prev)} className='flex flex-col space-y-2 w-10'>
