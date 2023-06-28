@@ -13,11 +13,14 @@ export const SearchBar = ({ setResults }) => {
 
     const debouncedOnChange = debounce(async () => {
         const val = inputRef.current.value;
-        if (val == '') return
+        if (val == '') {
+            setResults([])
+            return
+        }
         const { data } = await instance.get(`/public/search/${param}?text=${val}`);
         setResults(data)
         console.log(data);
-      }, 3000);
+      }, 2000);
 
   return (
     <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-neutral-900 pl-1'>
