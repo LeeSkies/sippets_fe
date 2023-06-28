@@ -29,7 +29,7 @@ export const SearchBar = ({ setResults }) => {
             <p className='pb-[2px] grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
-        <input ref={inputRef} onChange={() => inputRef.current.value.length > 0 ? debouncedOnChange : onReset} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
+        <input ref={inputRef} onChange={inputRef.current.value.length > 0 ? debouncedOnChange : onReset} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <button className=''>
             <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />
         </button>
