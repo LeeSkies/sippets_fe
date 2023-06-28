@@ -10,7 +10,7 @@ export const MainLayout = () => {
 
   return (
     <div className='container mx-auto flex justify-center items-start min-h-screen overflow-y-auto'>
-      <FloatingMenu />
+      {/* <FloatingMenu /> */}
         <section className='hidden sm:flex justify-end sm:min-w-[60px] relative top-0 lg:w-[300px] max-w-[300px] z-10'>
           <Menu />
         </section>
