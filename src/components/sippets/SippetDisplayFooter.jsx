@@ -95,7 +95,7 @@ export const SippetDisplayFooter = ({ sippet }) => {
             </figure>
         </section>
         {!loggedIn && <p className='relative max-md:hidden text-slate-400 text-sm md:grow px-4 pb-1 italic'>Sign in to interact</p>}
-        {!loggedIn && <div className='relative text-slate-400 md:hidden backdrop-blur-sm text-sm md:grow px-4 pb-1 italic'></div>}
+        {!loggedIn && <div className='absolute text-slate-400 md:hidden inset-0 border backdrop-blur-sm text-sm md:grow px-4 pb-1 italic'></div>}
         <button onClick={(e) =>  {e.stopPropagation(), setMenu(prev => !prev)}} className='text-neutral-300'>
             <EllipsisHorizontalIcon className='w-5 h-5' />
             {menu && <div className='absolute right-0 z-20'>
