@@ -5,7 +5,7 @@ export const Search = () => {
     const [results, setResults] = useState([])
     const [loading, setLoading] = useState(true)
   return (
-    <div className='w-full'>
+    <div className='w-full py-2'>
         <SearchBar />
     </div>
   )
