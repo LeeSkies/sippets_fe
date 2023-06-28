@@ -3,6 +3,7 @@ import { NotificationsContext } from '../../context/notificationsContext'
 import { UserContext } from '../../context/userContext'
 import { BellAlertIcon, BellIcon, Cog6ToothIcon, HandThumbUpIcon, HomeModernIcon, UserIcon } from '@heroicons/react/24/outline'
 import instance from '../../services/axios'
+import { NavLink } from 'react-router-dom'
 
 export const SideMenu = ({ }) => {
     
@@ -37,9 +38,9 @@ export const SideMenu = ({ }) => {
             <div className='w-full rounded-full h-1 bg-black'></div>
             <div className='w-full rounded-full h-1 bg-black'></div>
         </button>
-        <section className={`fixed top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`}>
+        <section className={`fixed top-0 right-0 duration-300 bg-neutral-950 ${open ? '' : 'translate-x-full'}`}>
             {links.map((link, i) => (
-                <div className='p-2'>{link.name}</div>
+                <NavLink to={link.to} className='p-2'>{link.icon}</NavLink>
             ))}
         </section>
     </aside>
