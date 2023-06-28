@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NotificationsContext } from '../../context/notificationsContext'
 import { UserContext } from '../../context/userContext'
-import { BellAlertIcon, BellIcon, Cog6ToothIcon, HandThumbUpIcon, HomeModernIcon, UserIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, BellAlertIcon, BellIcon, Cog6ToothIcon, HandThumbUpIcon, HomeModernIcon, UserIcon } from '@heroicons/react/24/outline'
 import instance from '../../services/axios'
 import { NavLink } from 'react-router-dom'
 
@@ -38,11 +38,14 @@ export const SideMenu = ({ }) => {
             <div className='w-full rounded-full h-1 bg-black'></div>
             <div className='w-full rounded-full h-1 bg-black'></div>
         </button>
-        <section className={`fixed top-0 right-0 duration-300 p-2 rounded-bl bg-neutral-950 ${open ? '' : 'translate-x-full'}`}>
-            {links.map((link, i) => (
-                <NavLink to={link.to} className='p-2'>{link.icon}</NavLink>
-            ))}
-        </section>
+        <div className={`fixed flex items-center top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`} >
+            <button className='p-2 rounded-full' onClick={() => setOpen(prev => !prev)}><ArrowRightIcon className='w-5 h-5'/></button>
+            <section className={`p-3 rounded-bl z-20 bg-neutral-950`}>
+                {links.map((link, i) => (
+                    <NavLink to={link.to} className='p-2'>{link.icon}</NavLink>
+                ))}
+            </section>
+        </div>
     </aside>
   )
 }
