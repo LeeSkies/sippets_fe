@@ -2,6 +2,7 @@ import React from 'react'
 import { ImageComp } from '../../ImageComp'
 import { useNavigate } from 'react-router-dom'
 import { HeartIcon } from '@heroicons/react/24/outline'
+import moment from 'moment'
 
 export const TextResult = ({ result }) => {
 
@@ -27,9 +28,10 @@ export const TextResult = ({ result }) => {
         <p className='font-bold text-sm w-full text-left py-2'>{buildStr(70)}...</p>
         <footer className='w-full flex justify-between'>
             <p>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
-            <p className='flex items-center space-x-1 text-rose-800'>
-                {result.likesCount}
-                <HeartIcon className='w-5 h-5' />
+            <p className='flex items-center space-x-1'>
+                <p>{moment(result.createdAt).fromNow()}</p>
+                <p className='text-rose-800'>{result.likesCount}</p>
+                <HeartIcon className='w-5 h-5 text-rose-800' />
             </p>
         </footer>
     </button>
