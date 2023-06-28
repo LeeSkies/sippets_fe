@@ -45,7 +45,7 @@ export const Menu = () => {
       const { data } = await instance.get('/protected/buzz/unread', { withCredentials: true })
       setNotifications(data.map(n => {return {...n, new: true}}))
     }
-    fetchNotifications()
+    if (notifications.length <= 0) fetchNotifications()
     setLoading(false)
   }, [])
 

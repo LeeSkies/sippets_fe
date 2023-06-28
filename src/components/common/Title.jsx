@@ -2,6 +2,7 @@ import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../context/userContext'
+import { SideMenu } from '../protected/SideMenu'
 
 export const Title = ({ title }) => {
 
@@ -17,7 +18,8 @@ export const Title = ({ title }) => {
         </button>
         <h1 className=' text-2xl'>{title}</h1>
       </section>
-      {loggedIn && <button onClick={() =>logout()} className='p-2 md:hidden bg-slate-700 text-slate-300 rounded'>logout</button>}
+      {/* {loggedIn && <button onClick={() =>logout()} className='p-2 md:hidden bg-slate-700 text-slate-300 rounded'>logout</button>} */}
+      {loggedIn && <SideMenu />}
     </header>
   )
 }
