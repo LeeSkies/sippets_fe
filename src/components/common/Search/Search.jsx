@@ -9,7 +9,7 @@ export const Search = () => {
   return (
     <div className='w-full relative py-2 border-t border-t-slate-600'>
         <SearchBar param={param} setParam={setParam} results={results} setResults={setResults} />
-        <ResultsDisplay param={param} results={results}  />
+        {/* <ResultsDisplay param={param} results={results}  /> */}
     </div>
   )
 }
