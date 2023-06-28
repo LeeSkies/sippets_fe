@@ -8,12 +8,15 @@ import { ProfileFollowBar } from '../common/Profile/ProfileFollowBar';
 import { ProfileNav } from '../common/Profile/ProfileNav';
 import { SippetsFeed } from '../sippets/SippetsFeed';
 import { SippetSkeleton } from '../utilities/SippetSkeleton';
+import { toast } from 'react-toastify';
+import { SippetsContext } from '../../context/sippetsContext';
 
 export const ProtectedProfile = () => {
 
   const { id } = useParams()
 
   const { user: current, loggedIn } = useContext(UserContext)
+  const { setFollowingSippets } = useContext(SippetsContext)
 
   const [user, setUser] = useState(null)
   const [sippets, setSippets] = useState([])

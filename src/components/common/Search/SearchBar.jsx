@@ -1,11 +1,10 @@
 import { ArrowPathRoundedSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React, { useRef, useState } from 'react'
-import instance from '../../../../services/axios'
+import instance from '../../../services/axios'
 import { debounce } from 'lodash'
 
-export const SearchBar = ({ setResults }) => {
+export const SearchBar = ({ param, setParam, setResults }) => {
     const inputRef = useRef()
-    const [param, setParam] = useState('text')
     const [loading, setLoading] = useState(false)
 
     const handleClick = () => {
