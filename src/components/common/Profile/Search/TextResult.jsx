@@ -23,7 +23,7 @@ export const TextResult = ({ result }) => {
             : <p className='rounded w-[40px] flex items-center justify-center h-[40px] bg-blue-600'>{result.author.username.charAt(0)}</p>}
             <p>{result.author.username}</p>
         </header>
-        <p>{buildStr(50)}...</p>
+        <p className='font-bold text-sm'>{buildStr(70)}...</p>
         <footer>Footer</footer>
     </button>
   )
