@@ -26,7 +26,7 @@ export const TextResult = ({ result }) => {
             <p>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
             <p className='flex items-center space-x-1'>
                 <p className='italic pr-2 pb-[2px]'>{moment(result.createdAt).fromNow()}</p>
-                <p className='text-sky-500'>{result.commentsCount</p>
+                <p className='text-sky-500'>{result.commentsCount}</p>
                 <ChatBubbleLeftIcon className='w-5 h-5 text-sky-500' />
                 <p className='text-green-700'>{result.toastsCount}</p>
                 <ArrowPathIcon className='w-5 h-5 text-green-700' />
