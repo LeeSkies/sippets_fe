@@ -32,7 +32,7 @@ export const SideMenu = ({ }) => {
   }, [])
 
   return (
-    <aside>
+    <aside className='md:hidden'>
         <button onClick={() => setOpen(prev => !prev)} className='flex flex-col space-y-[3px] w-6'>
             <div className='w-full rounded-full h-[3px] bg-slate-300'></div>
             <div className='w-full rounded-full h-[3px] bg-slate-300'></div>

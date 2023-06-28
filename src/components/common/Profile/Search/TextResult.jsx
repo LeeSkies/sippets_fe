@@ -1,7 +1,7 @@
 import React from 'react'
 import { ImageComp } from '../../ImageComp'
 
-export const Result = ({ result }) => {
+export const TextResult = ({ param, result }) => {
 
     const buildStr = (maxLen) => {
         let sb
@@ -25,3 +25,4 @@ export const Result = ({ result }) => {
     </article>
   )
 }
+
