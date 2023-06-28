@@ -29,7 +29,7 @@ export const TextResult = ({ result }) => {
         <footer className='w-full flex justify-between'>
             <p>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
             <p className='flex items-center space-x-1'>
-                <p className='italic'>{moment(result.createdAt).fromNow()}</p>
+                <p className='italic pr-2'>{moment(result.createdAt).fromNow()}</p>
                 <p className='text-rose-800'>{result.likesCount}</p>
                 <HeartIcon className='w-5 h-5 text-rose-800' />
             </p>
