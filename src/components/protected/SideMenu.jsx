@@ -9,9 +9,7 @@ export const SideMenu = ({ }) => {
     const { notifications, setNotifications } = useContext(NotificationsContext)
     const { user } = useContext(UserContext)
 
-    // const [open, setOpen] = useState(false)
-    const open = false
-    console.log('actually');
+    const [open, setOpen] = useState(false)
 
     const links = [
         {icon: <HomeModernIcon className='w-6 h-6' /> , name: 'Home', to: '/'},
@@ -34,7 +32,7 @@ export const SideMenu = ({ }) => {
 
   return (
     <aside>
-        <button className='flex flex-col space-y-2 w-10 border'>
+        <button onClick={() => setOpen(prev => !prev)} className='flex flex-col space-y-1 w-8'>
             <div className='w-full rounded-full h-1 bg-black'></div>
             <div className='w-full rounded-full h-1 bg-black'></div>
             <div className='w-full rounded-full h-1 bg-black'></div>
