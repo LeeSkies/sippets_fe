@@ -10,7 +10,7 @@ export const SearchBar = () => {
     }
   return (
     <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent'>
-        <button className='w-[100px] rounded-full p-1 space-x-1 bg-sky-300 flex text-slate-900 justify-center items-center'>
+        <button onClick={handleChange} className='w-[100px] rounded-full p-1 space-x-1 bg-sky-300 flex text-slate-900 justify-between items-center'>
             <p className='pb-1'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-3 h-3' />
         </button>
