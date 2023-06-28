@@ -1,7 +1,7 @@
 import React from 'react'
 import { ImageComp } from '../../ImageComp'
 
-export const TextResult = ({ param, result }) => {
+export const TextResult = ({ result }) => {
 
     const buildStr = (maxLen) => {
         let sb
