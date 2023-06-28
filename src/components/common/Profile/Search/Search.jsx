@@ -7,8 +7,8 @@ export const Search = () => {
     const [loading, setLoading] = useState(true)
   return (
     <div className='w-full relative py-2 border-t border-t-slate-600'>
-        <SearchBar />
-        <ResultsDisplay />
+        <SearchBar results={results} />
+        <ResultsDisplay results={results} />
     </div>
   )
 }
