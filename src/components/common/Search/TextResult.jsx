@@ -1,5 +1,4 @@
 import React from 'react'
-import { ImageComp } from '../ImageComp'
 import { useNavigate } from 'react-router-dom'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import moment from 'moment'

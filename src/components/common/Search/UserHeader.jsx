@@ -1,4 +1,5 @@
 import React from 'react'
+import { ImageComp } from '../../common/ImageComp'
 
 export const UserHeader = ({ result }) => {
   return (
