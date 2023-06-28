@@ -9,7 +9,7 @@ export const SearchBar = () => {
         setParam(prev => prev == 'language' ? 'user' : 'language')
     }
   return (
-    <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent'>
+    <section className='w-full flex items-center overflow-clip bg-gradient-to-r from-sky-200 to-transparent pl-2'>
         <button onClick={handleChange} className='w-[100px] rounded-full p-[2px] px-2 space-x-1 border border-sky-600 flex text-black items-center'>
             <p className='pb-1 grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
