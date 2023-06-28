@@ -16,8 +16,8 @@ export const TextResult = ({ result }) => {
   return (
     <article className='w-full hover:bg-slate-300 duration-200'>
         <header className='flex'>
-            {result.author?.file?.secure_url ? <ImageComp url={result.author.file.secure_url} w={'20px'} h={'20px'} />
-            : <p className='rounded w-[20px] h-[20px] bg-blue-600'>{result.author.username.charAt(0)}</p>}
+            {result.author?.image?.secure_url ? <ImageComp url={result.author.image.secure_url} w={'50px'} h={'50px'} />
+            : <p className='rounded w-[50px] flex items-center justify-center h-[50px] bg-blue-600'>{result.author.username.charAt(0)}</p>}
             <p>{result.author.username}</p>
         </header>
         <p>{buildStr}</p>
