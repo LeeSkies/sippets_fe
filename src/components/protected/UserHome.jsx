@@ -50,7 +50,6 @@ export const UserHome = () => {
         <button onClick={() => changeDisplay('following')} className={`text-xl grow p-4 md:p-8 ${display == 'following' && 'border-b box-border'}`}>Following</button>
       </nav>
       <Search />
-      {/* <SippetsFeed sippets={display == 'latest' ? latestSippets : followingSippets} /> */}
       {sippets.length > 0 && <SippetsFeed sippets={sippets} />}
       {loading && new Array(5).fill(null).map((_ , i) => (
             <div key={i} className='w-full'>
