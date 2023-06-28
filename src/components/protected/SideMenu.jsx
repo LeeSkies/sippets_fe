@@ -38,9 +38,9 @@ export const SideMenu = ({ }) => {
             <div className='w-full rounded-full h-1 bg-black'></div>
             <div className='w-full rounded-full h-1 bg-black'></div>
         </button>
-        <div className={`fixed flex items-center top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`} >
+        <div className={`fixed flex items-center z-20 top-0 right-0 duration-300 ${open ? '' : 'translate-x-full'}`} >
             <button className='p-2 rounded-full' onClick={() => setOpen(prev => !prev)}><ArrowRightIcon className='w-5 h-5'/></button>
-            <section className={`p-3 rounded-bl z-20 bg-neutral-950`}>
+            <section className={`p-3 rounded-bl bg-neutral-950`}>
                 {links.map((link, i) => (
                     <NavLink to={link.to} className='p-2'>{link.icon}</NavLink>
                 ))}
