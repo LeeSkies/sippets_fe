@@ -14,7 +14,7 @@ export const SearchBar = ({ setResults }) => {
     const debouncedOnChange = debounce(async () => {
         const val = inputRef.current.value;
         if (val == '') return
-        const { data } = await instance.get(`/public/search/${param}`);
+        const { data } = await instance.get(`/public/search/${param}?text=${val}`);
         setResults(data)
         console.log(data);
       }, 3000);
