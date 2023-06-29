@@ -5,6 +5,7 @@ import { Title } from '../common/Title'
 import { SippetSkeleton } from '../utilities/SippetSkeleton'
 import { SippetsFeed } from '../sippets/SippetsFeed'
 import instance from '../../services/axios'
+import { Search } from '../common/Search/Search'
 
 export const PublicHome = () => {
 
@@ -33,6 +34,7 @@ export const PublicHome = () => {
     <div className='flex flex-col items-center justify-center w-full pb-20'>
       <Title title={'Home'} />
       <h1 className='w-fill text-center p-4 font-sans italic font-extralight'>Sign in and start sharing your ideas!</h1>
+      <Search />
       {!loading && sippets.length > 0 && <SippetsFeed sippets={sippets} />}
       {loading && new Array(5).fill(null).map((_ , i) => (
         <div key={i} className='w-full'>
