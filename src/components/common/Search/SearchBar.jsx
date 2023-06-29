@@ -31,9 +31,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
             setLoading(false);
           }
         if (timeout) clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            handleChange()
-        }, 1000);
+        timeout = setTimeout(handleChange, 1000);
 
         return () => clearTimeout(timeout)
 
