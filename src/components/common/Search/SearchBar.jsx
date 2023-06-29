@@ -7,7 +7,9 @@ export const SearchBar = ({ param, setParam, setResults }) => {
     let timeout
 
     const inputRef = useRef()
+
     const [loading, setLoading] = useState(false)
+    const [value, setValue] = useState('')
 
     const handleClick = () => {
         setResults([])
@@ -18,13 +20,12 @@ export const SearchBar = ({ param, setParam, setResults }) => {
     useEffect(() => {
         const handleChange = async () => {
             setLoading(true)
-            const val = inputRef.current.value;
-            if (val == '') {
+            if (value == '') {
                 setResults([])
                 setLoading(false);
                 return
             }
-            const { data } = await instance.get(`/public/search/${param}?text=${val}`);
+            const { data } = await instance.get(`/public/search/${param}?text=${value}`);
             setResults(data)
             console.log(data);
             setLoading(false);
@@ -34,7 +35,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
             handleChange()
         }, 1000);
 
-    }, [param, inputRef.current?.value])
+    }, [param, value])
 
   return (
     <section className='w-full flex items-center overflow-clip bg-neutral-500 pl-1'>
