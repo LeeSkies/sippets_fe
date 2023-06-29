@@ -34,7 +34,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
             handleChange()
         }, 1000);
 
-    }, [param, inputRef.current.value])
+    }, [param, inputRef.current?.value])
 
   return (
     <section className='w-full flex items-center overflow-clip bg-neutral-500 pl-1'>
