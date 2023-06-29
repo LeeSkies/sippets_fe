@@ -10,7 +10,7 @@ export const UserResult = ({ result }) => {
   return (
     <button onClick={() => navigate('/user/' + result._id)} className='w-full flex pb-2 hover:bg-sky-200 duration-200'>
       {result?.image?.secure_url ?
-      <figure className={`flex justify-center aspect-square items-center overflow-clip w-[100px] h-[100px] object-cover`}>
+      <figure className={`flex justify-center aspect-square items-center overflow-hidden w-[100px] h-[100px] object-cover`}>
         <img src={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} className='min-w-full min-h-full object-cover' />
       </figure>
       : <p className='flex items-center justify-center w-[100px] aspect-square bg-blue-600'>{result.username.charAt(0)}</p>}
