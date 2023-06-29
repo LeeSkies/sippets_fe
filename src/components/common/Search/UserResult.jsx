@@ -11,13 +11,17 @@ export const UserResult = ({ result }) => {
   }
 
   return (
-    <button onClick={() => navigate('/user/' + result._id)} className='w-full flex hover:bg-sky-200 duration-200'>
-      {result?.image?.secure_url ? <ImageComp w={'100px'} url={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} />
-      : <p className='rounded w-[100px] flex items-center justify-center h-[100px] bg-blue-600'>{result.username.charAt(0)}</p>}
-      <section className='h-full flex flex-col justify-between p-2'>
+    <button onClick={() => navigate('/user/' + result._id)} className='w-full flex h-[150px] pb-2 hover:bg-sky-200 duration-200'>
+      {result?.image?.secure_url ? <ImageComp h={'100%'} rounded={false} url={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} />
+      : <p className='rounded flex items-center justify-center h-full aspect-square bg-blue-600'>{result.username.charAt(0)}</p>}
+      <section className='h-full w-full items-end flex flex-col justify-between p-2'>
         <header className='text-lg font-bold'>{result.username}</header>
         <p>{trimStr()}</p>
-        <footer></footer>
+        <footer className='w-full flex justify-around'>
+          <div className='flex space-x-1'></div>
+          <div className='flex space-x-1'></div>
+          <div className='flex space-x-1'></div>
+        </footer>
       </section>
     </button>
   )
