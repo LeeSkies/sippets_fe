@@ -15,13 +15,13 @@ export const TextResult = ({ result }) => {
             const len = maxLen - sb.length
             sb = sb + b.value.substring(0, len)
         })
-        return sb
+        return sb.length >= maxLen ? sb + '...' : sb
     }
 
   return (
     <button onClick={() => navigate('/sippet/' + result._id)} className='w-full p-2 hover:bg-slate-400 duration-200'>
         <UserHeader result={result} />
-        <p className='font-bold text-sm w-full text-left py-2'>{buildStr(70)}...</p>
+        <p className='font-bold text-sm w-full text-left py-2'>{buildStr(70)}</p>
         <footer className='w-full flex justify-between'>
             <p className='text-slate-700'>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
             <section className='flex items-center space-x-1'>
