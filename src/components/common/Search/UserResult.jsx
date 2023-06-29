@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ImageComp } from '../ImageComp'
-import { UserIcon, UsersIcon } from '@heroicons/react/24/outline'
+import { UserIcon, UsersIcon } from '@heroicons/react/24/solid'
 
 export const UserResult = ({ result }) => {
 
@@ -9,7 +9,10 @@ export const UserResult = ({ result }) => {
 
   return (
     <button onClick={() => navigate('/user/' + result._id)} className='w-full flex pb-2 hover:bg-sky-200 duration-200'>
-      {result?.image?.secure_url ? <ImageComp h={'100px'} w={'100px'} rounded={false} url={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} />
+      {result?.image?.secure_url ?
+      <figure className={`flex justify-center items-center overflow-clip w-[100px] h-[100px]`}>
+        <img src={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} className='min-w-full min-h-full object-cover' />
+      </figure>
       : <p className='flex items-center justify-center w-[100px] aspect-square bg-blue-600'>{result.username.charAt(0)}</p>}
       <section className='h-full w-full items-start text-start flex flex-col justify-between p-2'>
         <header className='text-lg font-bold'>{result.username}</header>
