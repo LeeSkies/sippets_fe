@@ -27,7 +27,6 @@ export const SearchBar = ({ param, setParam, setResults }) => {
             }
             const { data } = await instance.get(`/public/search/${param}?text=${value}`);
             setResults(data)
-            console.log(data);
             setLoading(false);
           }
         if (timeout) clearTimeout(timeout);
