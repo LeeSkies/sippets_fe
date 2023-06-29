@@ -18,6 +18,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
         const val = inputRef.current.value;
         if (val == '') {
             setResults([])
+            setLoading(false);
             return
         }
         const { data } = await instance.get(`/public/search/${param}?text=${val}`);
