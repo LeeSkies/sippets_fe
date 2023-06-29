@@ -19,20 +19,20 @@ export const TextResult = ({ result }) => {
     }
 
   return (
-    <button onClick={() => navigate('/sippet/' + result._id)} className='w-full p-2 hover:bg-sky-300 duration-200'>
+    <button onClick={() => navigate('/sippet/' + result._id)} className='w-full p-2 hover:bg-slate-400 duration-200'>
         <UserHeader result={result} />
         <p className='font-bold text-sm w-full text-left py-2'>{buildStr(70)}...</p>
         <footer className='w-full flex justify-between'>
-            <p>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
-            <p className='flex items-center space-x-1'>
-                <p className='italic pr-2 pb-[2px]'>{moment(result.createdAt).fromNow()}</p>
+            <p className='text-slate-700'>{result.blocks.find(b => b.type === 'code') ? result.language + ' code' : 'no code'}</p>
+            <section className='flex items-center space-x-1'>
+                <p className='italic pr-2 pb-[2px] text-slate-700'>{moment(result.createdAt).fromNow()}</p>
                 <p className='text-sky-500'>{result.commentsCount}</p>
                 <ChatBubbleLeftIcon className='w-5 h-5 text-sky-500' />
                 <p className='text-green-700'>{result.toastsCount}</p>
                 <ArrowPathIcon className='w-5 h-5 text-green-700' />
                 <p className='text-rose-800'>{result.likesCount}</p>
                 <HeartIcon className='w-5 h-5 text-rose-800' />
-            </p>
+            </section>
         </footer>
     </button>
   )
