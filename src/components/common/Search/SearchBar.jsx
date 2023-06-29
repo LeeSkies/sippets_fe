@@ -42,7 +42,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
             <p className='pb-[2px] grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
-        <input ref={inputRef} onChange={debouncedOnChange} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
+        <input ref={inputRef} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <div disabled={true} className=''>
             {loading ? <div className='rounded-full h-6 w-6 border border-b-sky-400 animate-spin mr-2'></div>
             : <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />}
