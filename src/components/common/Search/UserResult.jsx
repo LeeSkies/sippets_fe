@@ -8,7 +8,7 @@ export const UserResult = ({ result }) => {
   const navigate = useNavigate()
 
   return (
-    <button onClick={() => navigate('/user/' + result._id)} className='w-full flex pb-2 hover:bg-sky-200 duration-200'>
+    <button onClick={() => navigate('/user/' + result._id)} className='w-full flex pb-2 hover:bg-neutral-600 duration-200'>
       {result?.image?.secure_url ?
       <figure className={`flex justify-center aspect-square items-center overflow-hidden w-[100px] max-h-[100px] object-cover`}>
         <img src={result.image.secure_url.replace('upload/', 'upload/c_fill,h_200,w_200/')} className='min-w-full min-h-full object-cover' />

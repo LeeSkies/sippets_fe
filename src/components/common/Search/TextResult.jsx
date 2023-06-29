@@ -19,7 +19,7 @@ export const TextResult = ({ result }) => {
     }
 
   return (
-    <button onClick={() => navigate('/sippet/' + result._id)} className='w-full p-2 hover:bg-slate-400 duration-200'>
+    <button onClick={() => navigate('/sippet/' + result._id)} className='w-full p-2 hover:bg-neutral-600 duration-200'>
         <UserHeader result={result} />
         <p className='font-bold text-sm w-full text-left py-2'>{buildStr(70)}</p>
         <footer className='w-full flex justify-between'>
