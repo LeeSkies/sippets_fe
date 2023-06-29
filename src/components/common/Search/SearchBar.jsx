@@ -29,7 +29,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
 
   return (
     <section className='w-full flex items-center overflow-clip bg-neutral-500 pl-1'>
-        <button onClick={handleClick} className='w-[100px] active:scale-95 duration-300 rounded-full p-[2px] px-2 space-x-1 border bg-slate-700 flex text-slate-300 items-center'>
+        <button onClick={handleClick} className='w-[100px] active:scale-95 duration-300 rounded-full p-[2px] px-2 space-x-1 bg-slate-700 flex text-slate-300 items-center'>
             <p className='pb-[2px] grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
