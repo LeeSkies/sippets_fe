@@ -8,7 +8,6 @@ export const SearchBar = ({ param, setParam, setResults }) => {
     const [loading, setLoading] = useState(false)
 
     const handleClick = () => {
-        setResults([])
         inputRef.current.value = ''
         setParam(prev => prev == 'text' ? 'user' : 'text')
     }
@@ -17,7 +16,6 @@ export const SearchBar = ({ param, setParam, setResults }) => {
         setLoading(true)
         const val = inputRef.current.value;
         if (val == '') {
-            console.log('ufr');
             setResults([])
             setLoading(false);
             return
