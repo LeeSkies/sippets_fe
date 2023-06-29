@@ -1,9 +1,11 @@
 import { ArrowPathRoundedSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import instance from '../../../services/axios'
-import { debounce } from 'lodash'
 
 export const SearchBar = ({ param, setParam, setResults }) => {
+    
+    let timeout
+
     const inputRef = useRef()
     const [loading, setLoading] = useState(false)
 
@@ -13,19 +15,26 @@ export const SearchBar = ({ param, setParam, setResults }) => {
         setParam(prev => prev == 'text' ? 'user' : 'text')
     }
 
-    const debouncedOnChange = debounce(async () => {
-        setLoading(true)
-        const val = inputRef.current.value;
-        if (val == '') {
-            setResults([])
+    useEffect(() => {
+        const handleChange = async () => {
+            setLoading(true)
+            const val = inputRef.current.value;
+            if (val == '') {
+                setResults([])
+                setLoading(false);
+                return
+            }
+            const { data } = await instance.get(`/public/search/${param}?text=${val}`);
+            setResults(data)
+            console.log(data);
             setLoading(false);
-            return
-        }
-        const { data } = await instance.get(`/public/search/${param}?text=${val}`);
-        setResults(data)
-        console.log(data);
-        setLoading(false);
-      }, 1000);
+          }
+        if (timeout) clearTimeout(timeout);
+        setTimeout(() => {
+            handleChange()
+        }, 1000);
+
+    }, [param, inputRef.current.value])
 
   return (
     <section className='w-full flex items-center overflow-clip bg-neutral-500 pl-1'>
