@@ -17,6 +17,7 @@ export const SearchBar = ({ param, setParam, setResults }) => {
         setLoading(true)
         const val = inputRef.current.value;
         if (val == '') {
+            console.log('ufr');
             setResults([])
             setLoading(false);
             return
