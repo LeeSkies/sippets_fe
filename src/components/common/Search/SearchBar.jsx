@@ -39,11 +39,11 @@ export const SearchBar = ({ param, setParam, setResults }) => {
 
   return (
     <section className='w-full flex items-center overflow-clip bg-neutral-500 pl-1'>
-        <button onClick={handleClick} onChange={() => setValue(inputRef.current.value)} className='w-[100px] active:scale-95 duration-300 rounded-full p-[2px] px-2 space-x-1 bg-slate-700 flex text-slate-300 items-center'>
+        <button onClick={handleClick} className='w-[100px] active:scale-95 duration-300 rounded-full p-[2px] px-2 space-x-1 bg-slate-700 flex text-slate-300 items-center'>
             <p className='pb-[2px] grow'>{param}</p>
             <ArrowPathRoundedSquareIcon className='w-[12px] h-[12px]' />
         </button>
-        <input ref={inputRef} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
+        <input ref={inputRef} onChange={() => setValue(inputRef.current.value)} autoFocus={true} type="text" className='p-2 grow bg-transparent focus:outline-none caret-neutral-900 text-neutral-900' />
         <div disabled={true} className=''>
             {loading ? <div className='rounded-full h-6 w-6 border border-b-sky-400 animate-spin mr-2'></div>
             : <MagnifyingGlassIcon className='w-6 h-6 text-sky-400 pr-2' />}
